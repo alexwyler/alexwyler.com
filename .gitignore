@@ -1,2 +1,6 @@
 db/
 *.pyc
+*.css*
+*.sassc
+.sass-cache/
+.DS_Store

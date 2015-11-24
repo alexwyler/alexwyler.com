@@ -4,8 +4,13 @@
     var app = angular.module('alexwylercom', [
         'ui.router'
     ]);
-    app.config(function ($stateProvider, $urlRouterProvider) {
+    app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
         $urlRouterProvider.otherwise('/');
+        $locationProvider.html5Mode({
+            enabled: true,
+            requireBase: false
+        });
+
 
         $stateProvider.state('home', {
             url: '/',

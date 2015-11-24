@@ -1,0 +1,69 @@
+$bg_gray: #050505;
+$bg_white: #ffffff;
+$fg_white: #f0f0f0;
+$nav_gray: #e0e0e0;
+$margin: 16px;
+
+body {
+	background-color: $bg_gray;
+	color: $fg_white;
+	margin: 0;
+}
+
+figure {
+	margin: 0;
+}
+
+.top-section {
+	z-index: 10;
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url('/static/images/thought1.jpg');
+    margin-top: -140px;
+    padding: 500px 0 0 0;
+    background-color: #333;
+    opacity: 0.4;
+}
+
+.nav {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 190px;
+	z-index: 20;
+	color: $fg_white;
+}
+
+.nav .title {
+	margin: $margin;
+	float: left;
+	font-size: 40px;
+}
+
+.nav .links {
+	margin: $margin;
+	float: right;
+}
+.nav .links ul {
+	position: relative;
+    float: right;
+    padding: 15px 0;
+    margin: 0 auto;
+    padding: 15px 0;
+    display: inline-block;
+    overflow-x: auto;
+    list-style-type: none;
+
+    li {
+    	display: inline;
+    }
+}
+
+.main-container {
+	background-color: $bg_white;
+	height: 2000px;
+}
