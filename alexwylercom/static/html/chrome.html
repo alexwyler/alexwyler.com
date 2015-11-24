@@ -1,0 +1,23 @@
+<div class="nav">
+	<div class="title">
+		Alex Wyler
+	</div>
+	<div class="links">
+		<ul>
+			<li ui-sref="home" ng-class="{ selected: 'home' == $resolves.navItem }">
+				Home
+			</li>
+			<li ui-sref="resume" ng-class="{ selected: 'resume' == $resolves.navItem }">
+				Resume
+			</li>
+			<li ui-sref="blog" ng-class="{ selected: 'blog' == $resolves.navItem }">
+				Blog
+			</li>
+		</ul>
+	</div>
+</div>
+<div class="nav-backdrop"></div>
+<div class="top-section"></div>
+<div class="main-container" ui-view>
+
+</div>

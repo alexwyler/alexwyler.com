@@ -27,11 +27,38 @@
 		"shouldRunBless": 0,
 		"useLibsass": 0
 		},
+	"\/alexwylercom\/static\/html\/blog.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/alexwylercom\/static\/html\/blog.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/alexwylercom\/static\/html\/chrome.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/alexwylercom\/static\/html\/chrome.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/alexwylercom\/static\/html\/home.html": {
 		"fileType": 8192,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/alexwylercom\/static\/html\/home.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/alexwylercom\/static\/html\/resume.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/alexwylercom\/static\/html\/resume.html",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
@@ -56,6 +83,28 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
+		"syntaxCheckerStyle": 1
+		},
+	"\/alexwylercom\/static\/js\/min\/resolves-min.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/alexwylercom\/static\/js\/min\/resolves-min.js",
+		"outputAbbreviatedPath": "\/alexwylercom\/static\/js\/min\/min\/resolves-min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/alexwylercom\/static\/js\/resolves.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/alexwylercom\/static\/js\/resolves.js",
+		"outputAbbreviatedPath": "\/alexwylercom\/static\/js\/min\/resolves-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
 	"\/alexwylercom\/static\/js\/vendor\/angular-ui-router\/bower.json": {
@@ -569,7 +618,7 @@
 	"javascriptCreateSourceMap": 1,
 	"javascriptOutputStyle": 1,
 	"javascriptSyntaxCheckerStyle": 1,
-	"jsCheckerReservedNamesString": "angular",
+	"jsCheckerReservedNamesString": "angular, _, console",
 	"jsHintFlags2": {
 		"asi": {
 			"active": 0,

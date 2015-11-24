@@ -4,3 +4,4 @@ db/
 *.sassc
 .sass-cache/
 .DS_Store
+min/
