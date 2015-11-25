@@ -16,62 +16,62 @@ ul { padding: 0; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/alexwylercom\/static\/css\/main\.scss}line{font-family:\0000362}}
 figure { margin: 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/alexwylercom\/static\/css\/main\.scss}line{font-family:\0000366}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/alexwylercom\/static\/css\/main\.scss}line{font-family:\0000367}}
 .nav, .nav-backdrop { font-family: Bebas-Neue-Book; position: absolute; top: 0; width: 100%; height: 80px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/alexwylercom\/static\/css\/main\.scss}line{font-family:\0000375}}
-.nav { z-index: 20; color: white; min-width: 570px; background-color: rgba(255, 255, 255, 0.6); }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/alexwylercom\/static\/css\/main\.scss}line{font-family:\0000381}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/alexwylercom\/static\/css\/main\.scss}line{font-family:\0000376}}
+.nav { z-index: 20; color: white; min-width: 570px; background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.6)); /* For Safari 5.1 to 6.0 */ background: -o-linear-gradient(right, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.6)); /* For Opera 11.1 to 12.0 */ background: -moz-linear-gradient(right, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.6)); /* For Firefox 3.6 to 15 */ background: linear-gradient(to right, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.5)); /* Standard syntax */ }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/alexwylercom\/static\/css\/main\.scss}line{font-family:\0000385}}
 .nav .title { margin: 0 16px 0 20px; float: left; font-family: Bebas-Neue-Bold; font-size: 48px; padding: 21px 0; color: black; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/alexwylercom\/static\/css\/main\.scss}line{font-family:\0000392}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/alexwylercom\/static\/css\/main\.scss}line{font-family:\0000395}}
 .nav .links { margin: 0 16px 0 16px; float: right; padding: 18px 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/alexwylercom\/static\/css\/main\.scss}line{font-family:\0000398}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/alexwylercom\/static\/css\/main\.scss}line{font-family:\00003101}}
 .nav .links ul { position: relative; float: right; margin: 0 auto; display: inline-block; overflow-x: auto; list-style-type: none; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/alexwylercom\/static\/css\/main\.scss}line{font-family:\00003106}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/alexwylercom\/static\/css\/main\.scss}line{font-family:\00003109}}
 .nav .links ul li { font-size: 25px; display: inline-block; width: 90px; text-align: center; padding: 10px 0 6px 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/alexwylercom\/static\/css\/main\.scss}line{font-family:\00003114}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/alexwylercom\/static\/css\/main\.scss}line{font-family:\00003117}}
 .nav .links ul li:hover { color: #000000; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/alexwylercom\/static\/css\/main\.scss}line{font-family:\00003118}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/alexwylercom\/static\/css\/main\.scss}line{font-family:\00003121}}
 .nav .links ul li.selected:hover { color: white; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/alexwylercom\/static\/css\/main\.scss}line{font-family:\00003122}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/alexwylercom\/static\/css\/main\.scss}line{font-family:\00003125}}
 .nav .links ul li.selected { width: 86px; border: 2px solid #3CB371; background-color: rgba(0, 0, 0, 0.5); }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/alexwylercom\/static\/css\/main\.scss}line{font-family:\00003130}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/alexwylercom\/static\/css\/main\.scss}line{font-family:\00003133}}
 .top-section-image, .top-section-content { position: absolute; top: 0; width: 100%; overflow: hidden; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/alexwylercom\/static\/css\/main\.scss}line{font-family:\00003137}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/alexwylercom\/static\/css\/main\.scss}line{font-family:\00003140}}
 .top-section-image { z-index: 0; margin-top: -140px; height: 540px; background-size: cover; background-repeat: no-repeat; background-image: url("/static/images/thought1.jpg"); }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/alexwylercom\/static\/css\/main\.scss}line{font-family:\00003146}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/alexwylercom\/static\/css\/main\.scss}line{font-family:\00003149}}
 .top-section-content { z-index: 1; background-color: rgba(0, 0, 0, 0.8); padding-top: 80px; height: 320px; text-align: center; -webkit-animation: fadein 3s; /* Safari, Chrome and Opera > 12.1 */ -moz-animation: fadein 3s; /* Firefox < 16 */ -ms-animation: fadein 3s; /* Internet Explorer */ -o-animation: fadein 3s; /* Opera < 12.1 */ animation: fadein 3s; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/alexwylercom\/static\/css\/main\.scss}line{font-family:\00003159}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/alexwylercom\/static\/css\/main\.scss}line{font-family:\00003162}}
 .top-section-content .header { color: #1E90FF; margin: 68px 0; font-family: Bebas-Neue-Light; font-size: 80px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/alexwylercom\/static\/css\/main\.scss}line{font-family:\00003165}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/alexwylercom\/static\/css\/main\.scss}line{font-family:\00003168}}
 .top-section-content .header span { border-bottom: 2px solid #1E90FF; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/alexwylercom\/static\/css\/main\.scss}line{font-family:\00003170}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/alexwylercom\/static\/css\/main\.scss}line{font-family:\00003173}}
 .top-section-content .subtitle { font-size: 30px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/alexwylercom\/static\/css\/main\.scss}line{font-family:\00003176}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/alexwylercom\/static\/css\/main\.scss}line{font-family:\00003179}}
 .main-container { margin-top: 400px; background-color: #f4f4f4; min-height: 340px; border-top: 2px solid #3CB371; color: black; padding: 40px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/alexwylercom\/static\/css\/main\.scss}line{font-family:\00003184}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/alexwylercom\/static\/css\/main\.scss}line{font-family:\00003187}}
 .main-container .content { max-width: 68em; margin-left: auto; margin-right: auto; padding: 0 20px; text-align: center; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/alexwylercom\/static\/css\/main\.scss}line{font-family:\00003194}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/alexwylercom\/static\/css\/main\.scss}line{font-family:\00003197}}
 .footer { color: black; height: 60px; border-top: 40px solid #f0f0f0; background-color: #e0e0e0; text-align: center; padding: 20px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/alexwylercom\/static\/css\/main\.scss}line{font-family:\00003202}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/alexwylercom\/static\/css\/main\.scss}line{font-family:\00003205}}
 .footer .copyright { font-size: 12px; font-weight: light; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/alexwylercom\/static\/css\/main\.scss}line{font-family:\00003208}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/alexwylercom\/static\/css\/main\.scss}line{font-family:\00003211}}
 .footer .social-container ul { display: inline-block; list-style-type: none; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/alexwylercom\/static\/css\/main\.scss}line{font-family:\00003212}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/alexwylercom\/static\/css\/main\.scss}line{font-family:\00003215}}
 .footer .social-container ul li { font-size: 25px; display: inline-block; width: 40px; height: 20px; text-align: center; border-radius: 7px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/alexwylercom\/static\/css\/main\.scss}line{font-family:\00003220}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/alexwylercom\/static\/css\/main\.scss}line{font-family:\00003223}}
 .footer .social-container ul li img { width: 20px; height: 20px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/alexwylercom\/static\/css\/main\.scss}line{font-family:\00003226}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/alexwylercom\/static\/css\/main\.scss}line{font-family:\00003229}}
 .footer .social-container ul li:hover { opacity: .5; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/alexwylercom\/static\/css\/main\.scss}line{font-family:\00003236}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/alexwylercom\/static\/css\/main\.scss}line{font-family:\00003239}}
 .content .medium-embed-container { display: inline-block; }
 
 /*# sourceMappingURL=main.css.map */
