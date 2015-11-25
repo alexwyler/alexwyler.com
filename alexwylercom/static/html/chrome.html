@@ -1,6 +1,8 @@
 <div class="nav">
 	<div class="title">
-		Alex Wyler
+		<a ui-sref="home">
+			Alex Wyler
+		</a>
 	</div>
 	<div class="links">
 		<ul>
@@ -22,7 +24,7 @@
 		<span>{{$resolves.title || 'Welcome'}}</span>
 	</div>
 	<div class="subtitle">
-		{{$resolves.subtitle || 'Take your shoes off. Stay awhile.'}}
+		{{$resolves.subtitle || randomSubtitle()}}
 	</div>
 </div>
 <div class="main-container" ui-view>
