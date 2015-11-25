@@ -54,5 +54,13 @@
             }
         });
     });
+
+    app.run(function($rootScope, $timeout) {
+        $rootScope.date = new Date();
+
+        $rootScope.$on('$stateChangeSuccess', function() {
+            $timeout(medium_embed_onload, 1);
+        });
+    });
 }());
 

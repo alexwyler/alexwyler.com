@@ -37,13 +37,22 @@ $top-section-image-offset: 140px;
     src: url('/static/fonts/bebas_neue/BebasNeueBold.otf'); 
 }
 
+@font-face {
+	font-family: Bitter;
+	src: url('/static/fonts/bitter/Bitter-Regular.otf')
+}
+
 // global
 body {
 	background-color: $bg_white;
 	color: $fg_white;
 	margin: 0;
-	font-family: Bebas-Neue-Book, Sans-Serif;
+	font-family: Bitter, Sans-Serif;
 	font-size: 20px;
+}
+
+ul {
+	padding: 0;
 }
 
 [href] {
@@ -55,6 +64,7 @@ figure {
 }
 
 .nav, .nav-backdrop {
+	font-family: Bebas-Neue-Book;
 	position: absolute;
 	top: 0;
 	width: 100%;
@@ -166,7 +176,7 @@ figure {
 .main-container {
 	margin-top: $top-section-size;
 	background-color: $bg_white;
-	min-height: 400px;
+	min-height: 340px;
 	border-top: 2px solid $brand_green;
 	color: black;
 	padding: 40px;
@@ -177,5 +187,53 @@ figure {
 	    margin-right: auto;
 	    padding: 0 20px;
 	    text-align: center;
+	}
+}
+
+// footer
+.footer {
+	color: black;
+	height: 60px;
+	border-top: 40px solid #f0f0f0;
+	background-color: #e0e0e0;
+    text-align: center;
+    padding: 20px;
+
+    .copyright {
+    	font-size: 12px;
+    	font-weight: light;
+    }
+
+    .social-container {
+	    ul {
+		    display: inline-block;
+		    list-style-type: none;
+
+		    li {
+		    	font-size: 25px;
+		    	display: inline-block;
+		    	width: 40px;
+		    	height: 20px;
+		    	text-align: center;
+		    	border-radius: 7px;
+
+		    	img {
+		    		width: 20px;
+		    		height: 20px;
+		    	}
+		    }
+
+		    li:hover {
+		    	opacity: .5;
+		    }
+		}
+    }
+}
+
+// blog
+
+.content {
+	.medium-embed-container {
+	    display: inline-block;
 	}
 }
