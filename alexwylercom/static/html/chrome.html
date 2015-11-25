@@ -16,8 +16,15 @@
 		</ul>
 	</div>
 </div>
-<div class="nav-backdrop"></div>
-<div class="top-section"></div>
+<div class="top-section-image"></div>
+<div class="top-section-content">
+	<div class="header">
+		<span>{{$resolves.title || 'Welcome'}}</span>
+	</div>
+	<div class="subtitle">
+		{{$resolves.subtitle || 'Take your shoes off. Stay awhile.'}}
+	</div>
+</div>
 <div class="main-container" ui-view>
 
 </div>

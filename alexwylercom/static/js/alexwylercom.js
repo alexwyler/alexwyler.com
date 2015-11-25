@@ -19,37 +19,37 @@
         }).state('home', {
             url: '/',
             parent: 'chrome',
-            templateUrl: '/static/html/home.html',
-            controller: function() {
-
-            }, 
+            templateUrl: '/static/html/home.html', 
             resolve: {
                 navItem: function() {
                     return 'home';
+                },
+                title: function() {
+                    return 'Welcome';
                 }
             }
         }).state('resume', {
             url: '/resume',
             parent: 'chrome',
-            templateUrl: '/static/html/resume.html',
-            controller: function() {
-
-            }, 
+            templateUrl: '/static/html/resume.html', 
             resolve: {
                 navItem: function() {
                     return 'resume';
+                },
+                title: function() {
+                    return 'Resume';
                 }
             }
         }).state('blog', {
             url: '/blog',
             parent: 'chrome',
             templateUrl: '/static/html/blog.html',
-            controller: function() {
-
-            }, 
             resolve: {
                 navItem: function() {
                     return 'blog';
+                },
+                title: function() {
+                    return 'Blog';
                 }
             }
         });
