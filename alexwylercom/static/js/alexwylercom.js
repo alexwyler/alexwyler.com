@@ -83,12 +83,13 @@
 
     app.run(function($rootScope, $timeout) {
         $rootScope.date = new Date();
-        $rootScope.randomSubtitle = function() {
+        var genRandomSubtitle = function() {
             return subtitles[Math.floor(Math.random()*subtitles.length)];
         };
 
         $rootScope.$on('$stateChangeSuccess', function() {
             $timeout(medium_embed_onload, 1);
+            $rootScope.randomSubtitle = genRandomSubtitle();
         });
     });
 }());
