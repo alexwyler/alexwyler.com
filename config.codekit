@@ -83,6 +83,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/alexwylercom\/static\/images\/GitHub-Mark-64px.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2625,
+		"inputAbbreviatedPath": "\/alexwylercom\/static\/images\/GitHub-Mark-64px.png",
+		"outputAbbreviatedPath": "\/alexwylercom\/static\/images\/GitHub-Mark-64px.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/alexwylercom\/static\/images\/thought1.jpg": {
 		"fileType": 16384,
 		"ignore": 0,

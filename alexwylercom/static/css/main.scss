@@ -64,8 +64,8 @@ figure {
 }
 
 a {
-	color: inherit;
-	text-decoration: inherit;
+	color: black;
+	text-decoration: underline;
 }
 
 // Nav bar
@@ -94,6 +94,11 @@ a {
 		font-size: 48px;
 		padding: 21px 0;
 		color: black;
+
+		a {
+			color: inherit;
+			text-decoration: inherit;
+		}
 	}
 }
 
@@ -202,7 +207,7 @@ a {
 .footer {
 	color: black;
 	height: 60px;
-	border-top: 40px solid #f0f0f0;
+	border-top: 40px solid #ededed;
 	background-color: #e0e0e0;
     text-align: center;
     padding: 20px;
@@ -229,10 +234,10 @@ a {
 		    		width: 20px;
 		    		height: 20px;
 		    	}
-		    }
 
-		    li:hover {
-		    	opacity: .5;
+		    	img:hover {
+			    	opacity: .5;
+			    }
 		    }
 		}
     }
