@@ -63,6 +63,15 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/alexwylercom\/static\/html\/music.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/alexwylercom\/static\/html\/music.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/alexwylercom\/static\/html\/resume.html": {
 		"fileType": 8192,
 		"ignore": 0,

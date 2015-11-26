@@ -11,8 +11,8 @@
         "Just finishing up.  I'll be right out.",
         "You're just in time for pie!",
         "Can you get some milk next time you're out?",
-        "My phone's on 5%, so I might lose you.",
-        "How was the drive in?",
+        "My phone's at 5%, so I might lose you.",
+        "How was the drive up?",
         "Get in! You must be freezing!",
         "Don't mind the dog.  He's friendly.",
         "Hungry for apples?",
@@ -76,6 +76,18 @@
                 },
                 title: function() {
                     return 'Blog';
+                }
+            }
+        }).state('music', {
+            url: '/music',
+            parent: 'chrome',
+            templateUrl: '/static/html/music.html',
+            resolve: {
+                navItem: function() {
+                    return 'music';
+                },
+                title: function() {
+                    return 'Music';
                 }
             }
         });
