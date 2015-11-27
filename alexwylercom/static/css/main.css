@@ -6,7 +6,7 @@
 @font-face { font-family: Bitter; src: url("/static/fonts/bitter/Bitter-Regular.otf"); }
 @font-face { font-family: Proxima-Nova-Thin; src: url("/static/fonts/proxima_nova/proxima-nova-thin.otf"); }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/alexwylercom\/static\/css\/main\.scss}line{font-family:\0000351}}
-body { background-color: #f4f4f4; color: #f0f0f0; margin: 0; font-family: Proxima-Nova-Thin, Sans-Serif; font-size: 20px; }
+body { background-color: #fafafa; color: #f0f0f0; margin: 0; font-family: Proxima-Nova-Thin, Sans-Serif; font-size: 20px; }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/alexwylercom\/static\/css\/main\.scss}line{font-family:\0000359}}
 ul { padding: 0; margin: 0; display: inline-block; list-style-type: none; }
@@ -63,7 +63,7 @@ a:hover { color: #777777; }
 .top-section-content .subtitle { font-size: 30px; }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/alexwylercom\/static\/css\/main\.scss}line{font-family:\00003199}}
-.main-container { margin-top: 400px; background-color: #f4f4f4; min-height: 340px; border-top: 2px solid #3CB371; color: black; padding: 40px; }
+.main-container { margin-top: 400px; background-color: #fafafa; min-height: 340px; border-top: 2px solid #3CB371; color: black; padding: 40px; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/alexwylercom\/static\/css\/main\.scss}line{font-family:\00003207}}
 .main-container .content { max-width: 68em; margin-left: auto; margin-right: auto; padding: 0 20px; text-align: center; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/alexwylercom\/static\/css\/main\.scss}line{font-family:\00003214}}
