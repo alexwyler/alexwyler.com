@@ -15,6 +15,9 @@
 			<li ui-sref="resume" ng-class="{ selected: 'resume' == $resolves.navItem }">
 				Resume
 			</li>
+			<li ui-sref="music" ng-class="{ selected: 'music' == $resolves.navItem }">
+				Music
+			</li>
 		</ul>
 	</div>
 </div>
@@ -33,25 +36,35 @@
 <div class="footer">
 	<div class="links">
 		<ul>
-			<li ui-sref="home">
-				Home
+			<li>
+				<a ui-sref="home">
+					Home
+				</a>
 			</li>
-			<li ui-sref="blog">
-				Blog
+			<li>
+				<a ui-sref="blog">
+					Blog
+				</a>
 			</li>
-			<li ui-sref="resume">
-				Resume
+			<li>
+				<a ui-sref="resume">
+					Resume
+				</a>
 			</li>
-			<li href="https://eatstreet.com">
-				EatStreet
+			<li>
+				<a ui-sref="music">
+					Music
+				</a>
 			</li>
-			<li ui-sref="music">
-				Music
+			<li>
+				<a href="https://eatstreet.com">
+					EatStreet
+				</a>
 			</li>
 		</ul>
 	</div>
 	<div class="copyright">
-		©{{date| date:'yyyy'}} Alex Wyler. All rights reserved
+		© {{date| date:'yyyy'}} Alex Wyler. All rights reserved
 	</div>
 	<div class="social-container">
 		<ul>

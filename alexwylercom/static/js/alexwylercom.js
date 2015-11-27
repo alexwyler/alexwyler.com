@@ -12,19 +12,17 @@
         "You're just in time for pie!",
         "Can you get some milk next time you're out?",
         "My phone's at 5%, so I might lose you.",
-        "How was the drive up?",
+        "How was the drive up?",    
         "Get in! You must be freezing!",
         "Don't mind the dog.  He's friendly.",
         "Hungry for apples?",
         "Wasn't the meeting tomorrow though?",
-        "Don't mind the mess.",
+        "Don't mind the blanket fort.",
         "Hey, can you hold this for a second?",
         "Snape kills dumbledore.",
         "I had to Spark Notes 'Heart of Darkness'.",
         "Trying to define yourself is like trying to bite your own teeth.",
         "Take a left at the next street light.",
-        "Don't use the garbage disposal!",
-        "Thank god.  I'm famished."
     ];
 
     var app = angular.module('alexwylercom', [
@@ -64,6 +62,9 @@
                 },
                 title: function() {
                     return 'Resume';
+                },
+                subtitle: function() {
+                    return 'A Leader and full-stack web developer.';
                 }
             }
         }).state('blog', {
@@ -76,6 +77,9 @@
                 },
                 title: function() {
                     return 'Blog';
+                },
+                subtitle: function() {
+                    return "More on what's interesting to me.";
                 }
             }
         }).state('music', {
@@ -88,6 +92,9 @@
                 },
                 title: function() {
                     return 'Music';
+                },
+                subtitle: function() {
+                    return 'An aspiring producer.';
                 }
             }
         });

@@ -27,6 +27,15 @@
 		"shouldRunBless": 0,
 		"useLibsass": 0
 		},
+	"\/alexwylercom\/static\/fonts\/proxima_nova\/Licenses\/Mark Simonson Studio LLC - Font Software License.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/alexwylercom\/static\/fonts\/proxima_nova\/Licenses\/Mark Simonson Studio LLC - Font Software License.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/alexwylercom\/static\/html\/blog.html": {
 		"fileType": 8192,
 		"ignore": 0,
