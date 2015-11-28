@@ -3,34 +3,121 @@
 	{
 		"selected_items":
 		[
+			[
+				"res",
+				"resolves"
+			],
+			[
+				"su",
+				"subtitle"
+			],
+			[
+				"random",
+				"randomSubtitle"
+			],
+			[
+				"bg",
+				"bg_gray"
+			],
+			[
+				"include",
+				"include_raw"
+			],
+			[
+				"brand",
+				"brand_green"
+			],
+			[
+				"brand_",
+				"brand_blue"
+			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "alexwylercom/templates/index.html",
+			"contents": "",
+			"file": "alexwylercom/templatetags/__init__.py",
+			"file_size": 0,
+			"file_write_time": 130929458060000000,
 			"settings":
 			{
-				"buffer_size": 424,
+				"buffer_size": 0,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": ".gitignore",
+			"contents": "from django import template\nfrom django.template.loader import get_template\n\nregister = template.Library()\n\n@register.simple_tag\ndef include_raw(relative_filepath):\n	\"\"\" \n	Performs a template include without parsing the context, just dumps the template in.\n	\"\"\"\n\n	t = get_template(relative_filepath);\n	source = open(template_instance.origin.name, 'r').read()\n	return source\n",
+			"file": "alexwylercom/templatetags/include_raw.py",
+			"file_size": 374,
+			"file_write_time": 130929469970000000,
 			"settings":
 			{
-				"buffer_size": 47,
+				"buffer_size": 374,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "$bg_gray: #050505;\n$bg_white: #ffffff;\n$fg_white: #f0f0f0;\n$nav_gray: #e0e0e0;\n$margin: 16px;\n\nbody {\n	background-color: $bg_gray;\n	color: $fg_white;\n	margin: 0;\n}\n\nfigure {\n	margin: 0;\n}\n\n.top-section {\n	z-index: 10;\n    position: relative;\n    width: 100%;\n    height: auto;\n    overflow: hidden;\n    background-size: cover;\n    background-repeat: no-repeat;\n    background-image: url('/static/images/thought1.jpg');\n    margin-top: -140px;\n    padding: 5	00px 0 0 0;\n    background-color: #333;\n    opacity: 0.4;\n}\n\n.nav {\n	position: absolute;\n	top: 0;\n	width: 100%;\n	height: 190px;\n	z-index: 20;\n	color: $fg_white;\n}\n\n.nav .title {\n	margin: $margin;\n	float: left;\n	font-size: 40px;\n}\n\n.nav .links {\n	margin: $margin;\n	float: right;\n}\n.nav .links ul {\n	position: relative;\n    float: right;\n    padding: 15px 0;\n    margin: 0 auto;\n    padding: 15px 0;\n    display: inline-block;\n    overflow-x: auto;\n    list-style-type: none;\n\n    li {\n    	display: inline;\n    }\n}\n\n.main-container {\n	background-color: $bg_white;\n	height: 2000px;\n}",
+			"file": "alexwylercom/settings.py",
+			"settings":
+			{
+				"buffer_size": 2802,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "alexwylercom/static/html/index.html",
+			"settings":
+			{
+				"buffer_size": 696,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "alexwylercom/static/css/main.scss",
-			"file_size": 1038,
-			"file_write_time": 130928030820000000,
 			"settings":
 			{
-				"buffer_size": 1039,
+				"buffer_size": 5311,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/alexwyler/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+			"settings":
+			{
+				"buffer_size": 56,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "alexwylercom/deploy.sh",
+			"settings":
+			{
+				"buffer_size": 58,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "alexwylercom/static/html/blog.html",
+			"settings":
+			{
+				"buffer_size": 216,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "alexwylercom/static/js/vendor/medium/embed.js",
+			"settings":
+			{
+				"buffer_size": 6753,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/alexwyler/eatstreet/web/tools/travis_setup.sh",
+			"settings":
+			{
+				"buffer_size": 2956,
 				"line_ending": "Unix"
 			}
 		},
@@ -38,7 +125,23 @@
 			"file": "alexwylercom/static/html/home.html",
 			"settings":
 			{
-				"buffer_size": 259,
+				"buffer_size": 33,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "alexwylercom/static/html/chrome.html",
+			"settings":
+			{
+				"buffer_size": 2150,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "alexwylercom/static/html/music.html",
+			"settings":
+			{
+				"buffer_size": 660,
 				"line_ending": "Unix"
 			}
 		},
@@ -46,7 +149,23 @@
 			"file": "alexwylercom/static/js/alexwylercom.js",
 			"settings":
 			{
-				"buffer_size": 596,
+				"buffer_size": 3667,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "alexwylercom/static/html/resume.html",
+			"settings":
+			{
+				"buffer_size": 125,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "alexwylercom/static/js/resolves.js",
+			"settings":
+			{
+				"buffer_size": 487,
 				"line_ending": "Unix"
 			}
 		},
@@ -63,6 +182,22 @@
 			"settings":
 			{
 				"buffer_size": 136,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": ".sublime-project",
+			"settings":
+			{
+				"buffer_size": 45,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/alexwyler/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+			"settings":
+			{
+				"buffer_size": 39,
 				"line_ending": "Unix"
 			}
 		}
@@ -99,10 +234,39 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/alexwyler/alexwyler.com"
+		"/Users/alexwyler/alexwyler.com",
+		"/Users/alexwyler/alexwyler.com/alexwylercom",
+		"/Users/alexwyler/alexwyler.com/alexwylercom/static",
+		"/Users/alexwyler/alexwyler.com/alexwylercom/static/css",
+		"/Users/alexwyler/alexwyler.com/alexwylercom/static/fonts",
+		"/Users/alexwyler/alexwyler.com/alexwylercom/static/fonts/bebas_neue",
+		"/Users/alexwyler/alexwyler.com/alexwylercom/static/fonts/bitter",
+		"/Users/alexwyler/alexwyler.com/alexwylercom/static/html",
+		"/Users/alexwyler/alexwyler.com/alexwylercom/static/images",
+		"/Users/alexwyler/alexwyler.com/alexwylercom/static/js",
+		"/Users/alexwyler/alexwyler.com/alexwylercom/static/js/vendor",
+		"/Users/alexwyler/alexwyler.com/alexwylercom/static/js/vendor/medium",
+		"/Users/alexwyler/alexwyler.com/alexwylercom/templates"
 	],
 	"file_history":
 	[
+		"/Users/alexwyler/alexwyler.com/node_modules/express/index.js",
+		"/Users/alexwyler/alexwyler.com/alexwylercom/static/html/head.html",
+		"/Users/alexwyler/alexwyler.com/alexwylercom/static/css/main.css",
+		"/Users/alexwyler/alexwyler.com/alexwylercom/templates/django_index.html",
+		"/Users/alexwyler/alexwyler.com/alexwylercom/__init__.py",
+		"/Users/alexwyler/alexwyler.com/alexwylercom/templates/index.html",
+		"/Users/alexwyler/.ssh/known_hosts",
+		"/Users/alexwyler/.ssh/config",
+		"/var/folders/0f/_3hhnwf96w5_xsf_py6y33sr0000gn/T/edit.6anqgamdn7ggo04s/differential-update-comments",
+		"/var/folders/0f/_3hhnwf96w5_xsf_py6y33sr0000gn/T/edit.uwat1sax00gcskg8/new-commit",
+		"/var/folders/0f/_3hhnwf96w5_xsf_py6y33sr0000gn/T/edit.efjptsyfd3scowgg/new-commit",
+		"/Users/alexwyler/.bash_profile",
+		"/var/folders/0f/_3hhnwf96w5_xsf_py6y33sr0000gn/T/edit.8fqxjklk0s0swss8/new-commit",
+		"/Users/alexwyler/.gitconfig",
+		"/Users/alexwyler/alexwyler.com/.git/COMMIT_EDITMSG",
+		"/Users/alexwyler/alexwyler.com/.gitignore",
+		"/Users/alexwyler/alexwyler.com/test",
 		"/Users/alexwyler/FEZ",
 		"/Users/alexwyler/alexwyler.com/alexwylercom/models.py",
 		"/Users/alexwyler/Heimerdinger Guide",
@@ -112,7 +276,6 @@
 		"/Library/Python/2.7/site-packages/django/contrib/admin/templates/admin/index.html",
 		"/Users/alexwyler/alexwyler.com/alexwylercom/templates/main.html",
 		"/Library/Python/2.7/site-packages/django/contrib/admin/templates/admin/base_site.html",
-		"/Users/alexwyler/alexwyler.com/.gitignore",
 		"/Users/alexwyler/Downloads/silver-mine-subs.html",
 		"/Users/alexwyler/Dropbox/Docs/Cosmological Argument",
 		"/Users/alexwyler/public-cloud",
@@ -147,6 +310,14 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"bitter",
+			"B",
+			";\n",
+			"load",
+			"m-profile",
+			"deplo",
+			"log",
+			"templates",
 			"POST",
 			"64608944",
 			"64608943",
@@ -181,108 +352,110 @@
 	"groups":
 	[
 		{
-			"selected": 6,
+			"selected": 11,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "alexwylercom/templates/index.html",
+					"file": "alexwylercom/templatetags/__init__.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 424,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								407,
-								407
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage"
+							"syntax": "Packages/Python/Python.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 15,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": ".gitignore",
+					"file": "alexwylercom/templatetags/include_raw.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 47,
+						"buffer_size": 374,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								47,
-								47
+								358,
+								358
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/Python/Python.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "alexwylercom/static/css/main.scss",
+					"file": "alexwylercom/settings.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1039,
+						"buffer_size": 2802,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								458,
-								458
+								2213,
+								2213
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 142.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 12,
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "alexwylercom/static/html/home.html",
+					"file": "alexwylercom/static/html/index.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 259,
+						"buffer_size": 696,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								158,
-								158
+								630,
+								630
 							]
 						],
 						"settings":
@@ -299,19 +472,277 @@
 				},
 				{
 					"buffer": 4,
-					"file": "alexwylercom/static/js/alexwylercom.js",
+					"file": "alexwylercom/static/css/main.scss",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 596,
+						"buffer_size": 5311,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								311,
-								311
+								2035,
+								2035
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1048.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/Users/alexwyler/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 56,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								56,
+								56
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "alexwylercom/deploy.sh",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 58,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								58,
+								58
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "alexwylercom/static/html/blog.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 216,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								216
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "alexwylercom/static/js/vendor/medium/embed.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6753,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6019,
+								6019
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 27.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "/Users/alexwyler/eatstreet/web/tools/travis_setup.sh",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2956,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								218,
+								218
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "alexwylercom/static/html/home.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 33,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								21,
+								21
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "alexwylercom/static/html/chrome.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2150,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								252,
+								252
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "alexwylercom/static/html/music.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 660,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								481,
+								481
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "alexwylercom/static/js/alexwylercom.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3667,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2228,
+								2228
 							]
 						],
 						"settings":
@@ -324,11 +755,69 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 14,
+					"file": "alexwylercom/static/html/resume.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 125,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								114,
+								114
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 13,
+					"type": "text"
+				},
+				{
+					"buffer": 15,
+					"file": "alexwylercom/static/js/resolves.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 487,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								164,
+								471
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 14,
+					"type": "text"
+				},
+				{
+					"buffer": 16,
 					"file": "alexwylercom/urls.py",
 					"semi_transient": false,
 					"settings":
@@ -352,11 +841,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 17,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 17,
 					"file": "alexwylercom/views.py",
 					"semi_transient": false,
 					"settings":
@@ -368,8 +857,8 @@
 						"selection":
 						[
 							[
-								136,
-								136
+								128,
+								128
 							]
 						],
 						"settings":
@@ -380,7 +869,63 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 16,
+					"type": "text"
+				},
+				{
+					"buffer": 18,
+					"file": ".sublime-project",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 45,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								45,
+								45
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 19,
+					"type": "text"
+				},
+				{
+					"buffer": 19,
+					"file": "/Users/alexwyler/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 39,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								36,
+								36
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 18,
 					"type": "text"
 				}
 			]
@@ -434,6 +979,90 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"index.j",
+				"node_modules/express/index.js"
+			],
+			[
+				"a",
+				"alexwylercom/static/js/alexwylercom.js"
+			],
+			[
+				"inde",
+				"alexwylercom/static/html/index.html"
+			],
+			[
+				"al",
+				"alexwylercom/static/js/alexwylercom.js"
+			],
+			[
+				"alex",
+				"alexwylercom/static/js/alexwylercom.js"
+			],
+			[
+				"head",
+				"alexwylercom/static/html/head.html"
+			],
+			[
+				"main",
+				"alexwylercom/static/css/main.scss"
+			],
+			[
+				".sh",
+				"~/alexwyler.com/alexwylercom/deploy.sh"
+			],
+			[
+				"ale",
+				"alexwylercom/static/js/alexwylercom.js"
+			],
+			[
+				"mu",
+				"alexwylercom/static/html/music.html"
+			],
+			[
+				"mia",
+				"alexwylercom/static/css/main.scss"
+			],
+			[
+				"musi",
+				"alexwylercom/static/html/music.html"
+			],
+			[
+				"chrom",
+				"alexwylercom/static/html/chrome.html"
+			],
+			[
+				"res",
+				"alexwylercom/static/html/resume.html"
+			],
+			[
+				"chr",
+				"alexwylercom/static/html/chrome.html"
+			],
+			[
+				"blo",
+				"alexwylercom/static/html/blog.html"
+			],
+			[
+				"main.",
+				"alexwylercom/static/css/main.scss"
+			],
+			[
+				"blog",
+				"alexwylercom/static/html/blog.html"
+			],
+			[
+				"vie",
+				"alexwylercom/views.py"
+			],
+			[
+				"settings",
+				"alexwylercom/settings.py"
+			],
+			[
+				"main.sc",
+				"alexwylercom/static/css/main.scss"
+			]
 		],
 		"width": 0.0
 	},
@@ -448,7 +1077,7 @@
 	},
 	"select_symbol":
 	{
-		"height": 47.0,
+		"height": 392.0,
 		"last_filter": "",
 		"selected_items":
 		[
@@ -463,7 +1092,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 150.0,
+	"side_bar_width": 209.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

@@ -1,0 +1,22 @@
+{
+  "name": "alexwyler.com",
+  "version": "1.0.0",
+  "description": "Personal site",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexwyler/alexwyler.com.git"
+  },
+  "author": "Alex Wyler",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexwyler/alexwyler.com/issues"
+  },
+  "homepage": "https://github.com/alexwyler/alexwyler.com#readme",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}
