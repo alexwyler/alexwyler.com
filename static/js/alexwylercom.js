@@ -4,14 +4,11 @@
     var subtitles = [
         "I can't name all 150 pokemon.",
         "Take your shoes off. Stay awhile.",
-        "Can I get you anything? Cofee? Tea?",
+        "Can I get you anything? Coffee? Tea?",
         "Here, let me take your coat.",
         "How's the fam?",
-        "Hold on, let me grab my phone.",
-        "Just finishing up.  I'll be right out.",
         "You're just in time for pie!",
         "Can you get some milk next time you're out?",
-        "My phone's at 5%, so I might lose you.",
         "How was the drive up?",    
         "Get in! You must be freezing!",
         "Don't mind the dog.  He's friendly.",
@@ -20,7 +17,6 @@
         "Don't mind the blanket fort.",
         "Hey, can you hold this for a second?",
         "Snape kills dumbledore.",
-        "I had to Spark Notes 'Heart of Darkness'.",
         "Trying to define yourself is like trying to bite your own teeth.",
         "Take a left at the next street light.",
     ];

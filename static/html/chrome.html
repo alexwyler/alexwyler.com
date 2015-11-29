@@ -6,17 +6,25 @@
 	</div>
 	<div class="links">
 		<ul>
-			<li ui-sref="home" ng-class="{ selected: 'home' == $resolves.navItem }">
-				Home
+			<li ng-class="{ selected: 'home' == $resolves.navItem }">
+				<a ui-sref="home">
+					Home
+				</a>
 			</li>
-			<li ui-sref="resume" ng-class="{ selected: 'resume' == $resolves.navItem }">
-				Resume
+			<li ng-class="{ selected: 'resume' == $resolves.navItem }">
+				<a ui-sref="resume">
+					Resume
+				</a>
 			</li>
-			<li ui-sref="music" ng-class="{ selected: 'music' == $resolves.navItem }">
-				Music
+			<li ng-class="{ selected: 'music' == $resolves.navItem }">
+				<a ui-sref="music">
+					Music
+				</a>
 			</li>
-			<li ui-sref="blog" ng-class="{ selected: 'blog' == $resolves.navItem }">
-				Blog
+			<li ng-class="{ selected: 'blog' == $resolves.navItem }">
+				<a ui-sref="blog">
+					Blog
+				</a>
 			</li>
 		</ul>
 	</div>
