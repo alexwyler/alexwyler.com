@@ -35,7 +35,16 @@
 
         $stateProvider.state('chrome', {
             abstract: '/',
-            templateUrl: '/static/html/chrome.html'
+            templateUrl: '/static/html/chrome.html',
+            resolve: {
+                backgroundImage: function() {
+                    return {
+                        src: '/static/images/thought1.jpg',
+                        offset: 140,
+                        opacity: .8
+                    };
+                }
+            }
         }).state('home', {
             url: '/',
             parent: 'chrome',
@@ -47,6 +56,9 @@
                 title: function() {
                     return 'Welcome';
                 }
+            },
+            onEnter: function($anchorScroll) {
+                $anchorScroll();
             }
         }).state('resume', {
             url: '/resume',
@@ -61,6 +73,13 @@
                 },
                 subtitle: function() {
                     return 'A leader and full-stack web developer.';
+                },
+                backgroundImage: function() {
+                    return {
+                        src: '/static/images/macbook_code_bw.jpg',
+                        offset: 140,
+                        opacity: .7
+                    };
                 }
             }
         }).state('blog', {
@@ -76,6 +95,13 @@
                 },
                 subtitle: function() {
                     return "More on what's interesting to me.";
+                },
+                backgroundImage: function() {
+                    return {
+                        src: '/static/images/forlorn_ruins_bw.jpg',
+                        offset: 140,
+                        opacity: .7
+                    };
                 }
             }
         }).state('music', {
@@ -91,6 +117,13 @@
                 },
                 subtitle: function() {
                     return 'An aspiring producer.';
+                },
+                backgroundImage: function() {
+                    return {
+                        src: '/static/images/flstudio_project_bw_blur.jpg',
+                        offset: 140,
+                        opacity: .7
+                    };
                 }
             }
         });
@@ -105,6 +138,7 @@
         $rootScope.$on('$stateChangeSuccess', function() {
             $timeout(medium_embed_onload, 1);
             $rootScope.randomSubtitle = genRandomSubtitle();
+            console.log($rootScope.$resolves);
         });
     });
 }());

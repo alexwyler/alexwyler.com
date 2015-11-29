@@ -29,8 +29,8 @@
 		</ul>
 	</div>
 </div>
-<div class="top-section-image"></div>
-<div class="top-section-content">
+<div class="top-section-image" ng-style="{ 'background-image':'url(' + $resolves.backgroundImage.src + ')' }"></div>
+<div class="top-section-content" ng-style="{ 'background-color': 'rgba(0, 0, 0, ' + $resolves.backgroundImage.opacity + ')' }">
 	<div class="header">
 		<span>{{$resolves.title || 'Welcome'}}</span>
 	</div>

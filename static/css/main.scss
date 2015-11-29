@@ -9,7 +9,7 @@ $margin: 16px;
 $big_margin: 20px;
 $nav-size: 80px;
 $top-section-size: 400px;
-$top-section-image-offset: 140px;
+$top-section-image-offset: 100px;
 
 // fonts
 @font-face {
@@ -175,12 +175,10 @@ a:hover {
     height: $top-section-size + $top-section-image-offset;
     background-size: cover;
     background-repeat: no-repeat;
-    background-image: url('/static/images/thought1.jpg');
 }
 
 .top-section-content {
 	z-index: 1;
-    background-color: rgba(0, 0, 0, .8);
     padding-top: $nav-size;
     height: 400px - $nav-size;
 	text-align: center;
