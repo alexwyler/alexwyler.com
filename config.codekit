@@ -134,6 +134,72 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/static\/images\/flstudio_project_bw.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 201911,
+		"inputAbbreviatedPath": "\/static\/images\/flstudio_project_bw.png",
+		"outputAbbreviatedPath": "\/static\/images\/flstudio_project_bw.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/static\/images\/flstudio_project_bw_blur.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 226452,
+		"inputAbbreviatedPath": "\/static\/images\/flstudio_project_bw_blur.jpg",
+		"outputAbbreviatedPath": "\/static\/images\/flstudio_project_bw_blur.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/static\/images\/forlorn_ruins.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 234421,
+		"inputAbbreviatedPath": "\/static\/images\/forlorn_ruins.jpg",
+		"outputAbbreviatedPath": "\/static\/images\/forlorn_ruins.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/static\/images\/forlorn_ruins_bw.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 633336,
+		"inputAbbreviatedPath": "\/static\/images\/forlorn_ruins_bw.jpg",
+		"outputAbbreviatedPath": "\/static\/images\/forlorn_ruins_bw.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/static\/images\/gaming_and_philosophy.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 173829,
+		"inputAbbreviatedPath": "\/static\/images\/gaming_and_philosophy.jpg",
+		"outputAbbreviatedPath": "\/static\/images\/gaming_and_philosophy.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/static\/images\/gaming_and_philosophy_bw.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 235421,
+		"inputAbbreviatedPath": "\/static\/images\/gaming_and_philosophy_bw.jpg",
+		"outputAbbreviatedPath": "\/static\/images\/gaming_and_philosophy_bw.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/static\/images\/GitHub-Mark-64px.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -163,6 +229,94 @@
 		"initialSize": 2.54422e+06,
 		"inputAbbreviatedPath": "\/static\/images\/headshot_filtered_2.png",
 		"outputAbbreviatedPath": "\/static\/images\/headshot_filtered_2.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/static\/images\/macbook.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1.03425e+07,
+		"inputAbbreviatedPath": "\/static\/images\/macbook.jpg",
+		"outputAbbreviatedPath": "\/static\/images\/macbook.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/static\/images\/macbook_3.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 102736,
+		"inputAbbreviatedPath": "\/static\/images\/macbook_3.jpg",
+		"outputAbbreviatedPath": "\/static\/images\/macbook_3.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/static\/images\/macbook_3_bw.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 182439,
+		"inputAbbreviatedPath": "\/static\/images\/macbook_3_bw.jpg",
+		"outputAbbreviatedPath": "\/static\/images\/macbook_3_bw.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/static\/images\/macbook_bw.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1.40001e+06,
+		"inputAbbreviatedPath": "\/static\/images\/macbook_bw.jpg",
+		"outputAbbreviatedPath": "\/static\/images\/macbook_bw.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/static\/images\/macbook_code.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 4.80929e+06,
+		"inputAbbreviatedPath": "\/static\/images\/macbook_code.jpg",
+		"outputAbbreviatedPath": "\/static\/images\/macbook_code.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/static\/images\/macbook_code_bw.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 4.31082e+06,
+		"inputAbbreviatedPath": "\/static\/images\/macbook_code_bw.jpg",
+		"outputAbbreviatedPath": "\/static\/images\/macbook_code_bw.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/static\/images\/mackbook.JPG": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 313646,
+		"inputAbbreviatedPath": "\/static\/images\/mackbook.JPG",
+		"outputAbbreviatedPath": "\/static\/images\/mackbook.JPG",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/static\/images\/mackbook_bw_2.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 574680,
+		"inputAbbreviatedPath": "\/static\/images\/mackbook_bw_2.jpg",
+		"outputAbbreviatedPath": "\/static\/images\/mackbook_bw_2.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -735,7 +889,7 @@
 	"javascriptCreateSourceMap": 1,
 	"javascriptOutputStyle": 1,
 	"javascriptSyntaxCheckerStyle": 1,
-	"jsCheckerReservedNamesString": "angular, _, console, medium_embed_onload, require, process",
+	"jsCheckerReservedNamesString": "angular, _, console, medium_embed_onload, require, process, __dirname",
 	"jsHintFlags2": {
 		"asi": {
 			"active": 0,

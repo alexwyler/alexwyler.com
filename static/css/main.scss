@@ -13,6 +13,11 @@ $top-section-image-offset: 100px;
 
 // fonts
 @font-face {
+	font-family: Adobe-Garamond-Pro;
+	src: url('/static/fonts/adobe-garamond-pro/Adobe-Garamond-Pro_2012.ttf')
+}
+
+@font-face {
     font-family: Bebas-Neue;
     src: url('/static/fonts/bebas_neue/BebasNeueRegular.otf'); 
 }
@@ -59,7 +64,7 @@ body {
 	color: $fg_white;
 	margin: 0;
 	font-family: Proxima-Nova, Sans-Serif;
-	font-size: 16px;
+	font-size: 15px;
 }
 
 ul {
@@ -84,6 +89,11 @@ a {
 
 a:hover {
 	color: #777777;
+}
+
+p {
+    -webkit-margin-after: 1.2em;
+    line-height: 1.5em;    
 }
 
 // Nav bar
@@ -183,12 +193,6 @@ a:hover {
     height: 400px - $nav-size;
 	text-align: center;
 
-    -webkit-animation: fadein 3s; /* Safari, Chrome and Opera > 12.1 */
-       -moz-animation: fadein 3s; /* Firefox < 16 */
- 	    -ms-animation: fadein 3s; /* Internet Explorer */
-	     -o-animation: fadein 3s; /* Opera < 12.1 */
-			animation: fadein 3s;
-
     .header {
     	color: $brand_blue;
 		margin: 68px 0;
@@ -217,24 +221,42 @@ a:hover {
 	    max-width: 68em;
 	    margin-left: auto;
 	    margin-right: auto;
-	    padding: 20px;
+	    padding: 34px;
 	    text-align: center;
+	}
 
-	    .section-title {
-	    	padding-bottom: 20px;
-	    	font-size: 24px;
-	    	font-family: Bitter;
-	    }
+    .section-title {
+    	padding-bottom: 20px;
+    	font-size: 40px;
+    	font-family: Adobe-Garamond-Pro;
+    }
+
+	.content-container-black {
+		background: -webkit-linear-gradient(#353439, #333237); /* For Safari 5.1 to 6.0 */
+		background: -o-linear-gradient(#353439, #333237); /* For Opera 11.1 to 12.0 */
+		background: -moz-linear-gradient(#353439, #333237); /* For Firefox 3.6 to 15 */
+		background: linear-gradient(#353439, #333237); /* Standard syntax */
+
+		color: white;
+		width: 100%;
+		a {
+			color: inherit;
+		}
+		a:hover {
+			color: #777777;
+		}
 	}
 }
 
 // footer
 .footer {
-	color: black;
-	border-top: 40px solid #ededed;
 	background-color: #e0e0e0;
+	background: -webkit-linear-gradient(#e0e0e0, #f0f0f0); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(#e0e0e0, #f0f0f0); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(#e0e0e0, #f0f0f0); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(#e0e0e0, #f0f0f0); /* Standard syntax */
     text-align: center;
-    padding: 20px;
+    padding: 34px;
 
     .links {
     	font-family: Bebas-Neue-Book;
@@ -302,13 +324,12 @@ a:hover {
 // home
 
 .about {
-	width: 700px;
+	max-width: 1000px;
 	display: inline-block;
 	text-align: left;
 
 	.head-shot-container {
-		width: 250px;
-		height: 1000px;
+		width: 30%;
 		display: inline-block;
 		float: left;
 
@@ -331,10 +352,16 @@ a:hover {
 	
 
 	.info {
+		display: inline-block;
 		padding-top: 10px;	
 		float: left;
-		width: 450px;
-		height: 1000px;
+		width: 70%;
 	}
+}
+
+.contact {
+	text-align: left;
+	display: inline-block;
+	font-family: Proxima-Nova-Thin;
 }
 

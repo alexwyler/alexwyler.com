@@ -40,8 +40,7 @@
                 backgroundImage: function() {
                     return {
                         src: '/static/images/thought1.jpg',
-                        offset: 140,
-                        opacity: .8
+                        opacity: 0.8
                     };
                 }
             }
@@ -77,8 +76,7 @@
                 backgroundImage: function() {
                     return {
                         src: '/static/images/macbook_code_bw.jpg',
-                        offset: 140,
-                        opacity: .7
+                        opacity: 0.7
                     };
                 }
             }
@@ -99,8 +97,7 @@
                 backgroundImage: function() {
                     return {
                         src: '/static/images/forlorn_ruins_bw.jpg',
-                        offset: 140,
-                        opacity: .7
+                        opacity: 0.7
                     };
                 }
             }
@@ -121,8 +118,7 @@
                 backgroundImage: function() {
                     return {
                         src: '/static/images/flstudio_project_bw_blur.jpg',
-                        offset: 140,
-                        opacity: .7
+                        opacity: 0.7
                     };
                 }
             }
