@@ -363,5 +363,10 @@ p {
 	text-align: left;
 	display: inline-block;
 	font-family: Proxima-Nova-Thin;
+
+	.name {
+		font-family: Proxima-Nova;
+		font-size: 18px;
+	}
 }
 
