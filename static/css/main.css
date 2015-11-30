@@ -139,21 +139,21 @@ p { -webkit-margin-before: 0; -webkit-margin-after: 1.2em; line-height: 1.5em; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/static\/css\/main\.scss}line{font-family:\00003417}}
 .resume .item .technology { display: inline-block; text-align: right; width: 160px; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/static\/css\/main\.scss}line{font-family:\00003423}}
-.resume .item .rating-container .rating { width: 15px; height: 15px; border-radius: 50%; display: inline-block; margin-left: 4px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/static\/css\/main\.scss}line{font-family:\00003431}}
+.resume .item .rating-container .rating { width: 15px; height: 15px; border-radius: 50%; display: inline-block; margin-left: 4px; margin-bottom: -3px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/static\/css\/main\.scss}line{font-family:\00003432}}
 .resume .item .rating-container .rating-1 { background-color: #F7DE00; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/static\/css\/main\.scss}line{font-family:\00003435}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/static\/css\/main\.scss}line{font-family:\00003436}}
 .resume .item .rating-container .rating-2 { background-color: #F7DE00; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/static\/css\/main\.scss}line{font-family:\00003439}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/static\/css\/main\.scss}line{font-family:\00003440}}
 .resume .item .rating-container .rating-3 { background-color: #008f00; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/static\/css\/main\.scss}line{font-family:\00003443}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/static\/css\/main\.scss}line{font-family:\00003444}}
 .resume .item .rating-container .rating-4 { background-color: #008f00; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/static\/css\/main\.scss}line{font-family:\00003447}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/static\/css\/main\.scss}line{font-family:\00003448}}
 .resume .item .rating-container .rating-5 { background-color: #1E90FF; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/static\/css\/main\.scss}line{font-family:\00003453}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/static\/css\/main\.scss}line{font-family:\00003454}}
 .resume .where-when { display: inline-block; width: 175px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/static\/css\/main\.scss}line{font-family:\00003459}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/static\/css\/main\.scss}line{font-family:\00003460}}
 .download-resume { font-size: 40px; }
 
 /*# sourceMappingURL=main.css.map */
