@@ -13,7 +13,6 @@
         "Get in! You must be freezing!",
         "Don't mind the dog.  He's friendly.",
         "Hungry for apples?",
-        "Wasn't the meeting tomorrow though?",
         "Don't mind the blanket fort.",
         "Hey, can you hold this for a second?",
         "Snape kills dumbledore.",
