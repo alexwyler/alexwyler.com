@@ -137,5 +137,18 @@
             console.log($rootScope.$resolves);
         });
     });
+
+    var max_range = new Array(5);
+    app.directive('skillRatingItem', function() {
+        return {
+            scope: {},
+            restrict: 'E',
+            templateUrl: '/static/html/skill-rating.html',
+            link: function(scope, element, attrs) {
+                scope.skill = attrs.skill;
+                scope.range = max_range.slice(0, +attrs.rating);
+            }
+          };
+    });
 }());
 
