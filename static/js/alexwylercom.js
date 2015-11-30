@@ -16,7 +16,6 @@
         "Don't mind the blanket fort.",
         "Hey, can you hold this for a second?",
         "Snape kills dumbledore.",
-        "Trying to define yourself is like trying to bite your own teeth.",
         "Take a left at the next street light.",
     ];
 
