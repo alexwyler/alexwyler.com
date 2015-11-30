@@ -60,6 +60,24 @@
 		"shouldRunBless": 0,
 		"useLibsass": 0
 		},
+	"\/static\/css\/vendor\/Skeleton-2.0.4\/normalize.css": {
+		"fileType": 16,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/static\/css\/vendor\/Skeleton-2.0.4\/normalize.css",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/static\/css\/vendor\/Skeleton-2.0.4\/skeleton.css": {
+		"fileType": 16,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/static\/css\/vendor\/Skeleton-2.0.4\/skeleton.css",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/static\/fonts\/proxima_nova\/Licenses\/Mark Simonson Studio LLC - Font Software License.html": {
 		"fileType": 8192,
 		"ignore": 0,

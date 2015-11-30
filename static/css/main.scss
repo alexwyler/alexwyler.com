@@ -10,7 +10,9 @@ $brand_red: #df4244;
 $margin: 16px;
 $big_margin: 20px;
 $nav-size: 80px;
+$nav-size-mobile: 150px;
 $top-section-size: 400px;
+$top-section-size-mobile: 500px;
 $top-section-image-offset: 100px;
 
 // fonts
@@ -72,6 +74,7 @@ body {
 	margin: 0;
 	font-family: Proxima-Nova, Sans-Serif;
 	font-size: 15px;
+	line-height: inherit;
 }
 
 ul {
@@ -110,25 +113,20 @@ p {
 	position: absolute;
 	top: 0;
 	width: 100%;
-	height: $nav-size;
-
 }
 
 .nav {
 	z-index: 20;
 	color: white;
-	min-width: 570px;
   	background: -webkit-linear-gradient(left, rgba(255, 255, 255, .9), rgba(255, 255, 255, 0.4)); /* For Safari 5.1 to 6.0 */
   	background: -o-linear-gradient(right, rgba(255, 255, 255, .9), rgba(255, 255, 255, 0.4)); /* For Opera 11.1 to 12.0 */
   	background: -moz-linear-gradient(right, rgba(255, 255, 255, .9), rgba(255, 255, 255, 0.4)); /* For Firefox 3.6 to 15 */
   	background: linear-gradient(to right, rgba(255, 255, 255, .9), rgba(255, 255, 255, 0.4)); /* Standard syntax */
 
 	.title {
-		margin: 0 $margin 0 $big_margin;
 		float: left;
 		font-family: Bebas-Neue-Bold;
 		font-size: 48px;
-		padding: 21px 0;
 		color: black;
 
 		a {
@@ -136,12 +134,6 @@ p {
 			text-decoration: inherit;
 		}
 	}
-}
-
-.nav .links {
-	margin: 0 $margin 0 $margin;
-	float: right;
-	padding: 18px 0;
 }
 
 .nav .links ul {
@@ -179,6 +171,54 @@ p {
     }
 }
 
+@media screen and (min-width: 0px) {
+	.nav, .nav-backdrop {
+		height: $nav-size-mobile;
+		text-align: center;
+
+		.links {
+			text-align: center;
+			float: inherit;
+			display: inline-block;
+			width: 100%;
+			padding: 10px 0;
+			margin: 0;
+
+			ul {
+				float: inherit;
+			}
+		}
+
+		.title {
+			display: inline-block;
+			width: 100%;
+			padding: 16px 0;
+			margin: 0;
+		}
+	}
+}
+
+@media screen and (min-width: 800px) {
+	.nav, .nav-backdrop {
+		text-align: inherit;
+		height: $nav-size;
+
+		.title {
+			display: inline-block;
+			width: auto;
+			margin: 0 $margin 0 $big_margin;
+			padding: 21px 0;
+		}
+
+		.links {
+			margin: 0 $margin 0 $margin;
+			float: right;
+			padding: 18px 0;
+			width: auto;
+		}
+	}
+}
+
 // top section
 .top-section-image, .top-section-content {
     position: absolute;
@@ -190,15 +230,12 @@ p {
 .top-section-image {
 	z-index: 0;
 	margin-top: -$top-section-image-offset;
-    height: $top-section-size + $top-section-image-offset;
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 .top-section-content {
 	z-index: 1;
-    padding-top: $nav-size;
-    height: 400px - $nav-size;
 	text-align: center;
 
     .header {
@@ -218,9 +255,30 @@ p {
     }
 }
 
+@media screen and (min-width: 0px) {
+	.top-section-content {
+	    padding-top: $nav-size-mobile;
+        height: $top-section-size-mobile - $nav-size-mobile;
+	}
+
+	.top-section-image {
+	    height: $top-section-size-mobile + $top-section-image-offset;
+	}
+}
+
+@media screen and (min-width: 800px) {
+	.top-section-content {
+	    padding-top: $nav-size;
+        height: $top-section-size - $nav-size;
+	}
+
+	.top-section-image {
+	    height: $top-section-size + $top-section-image-offset;
+	}
+}
+
 // content
 .main-container {
-	margin-top: $top-section-size;
 	background-color: $bg_white;
 	min-height: 340px;
 	color: black;
@@ -255,6 +313,19 @@ p {
 		}
 	}
 }
+
+@media screen and (min-width: 0px) {
+	.main-container {
+		margin-top: $top-section-size-mobile;
+	}
+}
+
+@media screen and (min-width: 800px) {
+	.main-container {
+		margin-top: $top-section-size;
+	}
+}
+
 
 // footer
 .footer {
