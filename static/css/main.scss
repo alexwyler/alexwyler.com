@@ -73,7 +73,7 @@ body {
 	color: $fg_white;
 	margin: 0;
 	font-family: Proxima-Nova, Sans-Serif;
-	font-size: 15px;
+	font-size: 1.5em;
 	line-height: inherit;
 }
 
@@ -104,7 +104,7 @@ a:hover {
 p {
     -webkit-margin-before: 0;
     -webkit-margin-after: 1.2em;
-    line-height: 1.5em;    
+    line-height: 1.5em;
 }
 
 // Nav bar
@@ -126,7 +126,7 @@ p {
 	.title {
 		float: left;
 		font-family: Bebas-Neue-Bold;
-		font-size: 48px;
+		font-size: 3.2em;
 		color: black;
 
 		a {
@@ -149,7 +149,7 @@ p {
     	padding: 10px 0 6px 0;
 
     	a {
-	    	font-size: 25px;
+	    	font-size: 1.65em;
 	    	text-decoration: inherit;
 	    	color: inherit;
     	}
@@ -242,7 +242,7 @@ p {
     	color: $brand_blue;
 		margin: 68px 0;
 		font-family: Bebas-Neue-Light;
-		font-size: 80px;
+		font-size: 5.35em;
 
 		span {
 			border-bottom: 2px solid $brand_blue;
@@ -251,7 +251,7 @@ p {
 
     .subtitle {
     	font-family: Proxima-Nova-Thin;
-    	font-size: 30px;
+    	font-size: 2em;
     }
 }
 
@@ -293,7 +293,7 @@ p {
 
     .section-title {
     	padding-bottom: 30px;
-    	font-size: 40px;
+    	font-size: 2.2em;
     	font-family: Bebas-Neue-Light;
     }
 
@@ -342,7 +342,7 @@ p {
     	margin-bottom: 16px;
 		ul {
 		    li {
-		    	font-size: 25px;
+		    	font-size: 1.65em;
 		    	display: inline-block;
 		    	width: 90px;
 		    	text-align: center;
@@ -355,7 +355,7 @@ p {
     }
 
     .copyright {
-    	font-size: 12px;
+    	font-size: 0.8em;
     	color: #5c5c5c;
     	margin-bottom: 20px;
     }
@@ -444,7 +444,7 @@ p {
 
 	.name {
 		font-family: Proxima-Nova;
-		font-size: 18px;
+		font-size: 1.2em;
 	}
 }
 
@@ -467,7 +467,7 @@ p {
 		display: inline-block;
 		font-family: Bebas-Neue-Bold;
 		width: 175px;
-		font-size: 20px;
+		font-size: 1.35em;
 	}
 
 	.item {
@@ -527,8 +527,3 @@ p {
 		width: 175px;
 	}
 }
-
-.download-resume {
-	font-size: 40px;
-}
-
