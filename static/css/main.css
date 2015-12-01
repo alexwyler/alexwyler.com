@@ -1,13 +1,13 @@
-@font-face { font-family: Adobe-Garamond-Pro; src: url("/static/fonts/adobe-garamond-pro/Adobe-Garamond-Pro_2012.ttf"); }
-@font-face { font-family: Adobe-Garamond-Pro-Italic; src: url("/static/fonts/adobe-garamond-pro/Adobe-Garamond-Pro-Italic_2009.ttf"); }
+@font-face { font-family: Adobe-Garamond-Pro; src: url("/static/fonts/adobe-garamond-pro/Adobe-Garamond-Pro.woff"); }
+@font-face { font-family: Adobe-Garamond-Pro-Italic; src: url("/static/fonts/adobe-garamond-pro/Adobe-Garamond-Pro-Italic.woff"); }
 @font-face { font-family: Bebas-Neue; src: url("/static/fonts/bebas_neue/BebasNeueRegular.otf"); }
-@font-face { font-family: Bebas-Neue-Thin; src: url("/static/fonts/bebas_neue/BebasNeueThin.otf"); }
-@font-face { font-family: Bebas-Neue-Light; src: url("/static/fonts/bebas_neue/BebasNeueLight.otf"); }
-@font-face { font-family: Bebas-Neue-Book; src: url("/static/fonts/bebas_neue/BebasNeueBook.otf"); }
+@font-face { font-family: Bebas-Neue-Thin; src: url("/static/fonts/bebas_neue/bebas-neue-thin.woff"); }
+@font-face { font-family: Bebas-Neue-Light; src: url("/static/fonts/bebas_neue/bebas-neue-light.woff"); }
+@font-face { font-family: Bebas-Neue-Book; src: url("/static/fonts/bebas_neue/bebas-neue-book.woff"); }
 @font-face { font-family: Bebas-Neue-Bold; src: url("/static/fonts/bebas_neue/BebasNeueBold.otf"); }
 @font-face { font-family: Bitter; src: url("/static/fonts/bitter/Bitter-Regular.otf"); }
-@font-face { font-family: Proxima-Nova-Thin; src: url("/static/fonts/proxima_nova/proxima-nova-thin.otf"); }
-@font-face { font-family: Proxima-Nova; src: url("/static/fonts/proxima_nova/ProximaNova-Reg.otf"); }
+@font-face { font-family: Proxima-Nova-Thin; src: url("/static/fonts/proxima_nova/proxima-nova-thin.woff"); }
+@font-face { font-family: Proxima-Nova; src: url("/static/fonts/proxima_nova/proxima-nova-regular.woff"); }
 @-ms-viewport { width: extend-to-zoom; zoom: 1.0; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/static\/css\/main\.scss}line{font-family:\0000389}}
 body { background-color: #fafafa; color: #f0f0f0; margin: 0; font-family: Proxima-Nova, Sans-Serif; font-size: 1.5em; line-height: inherit; }
@@ -37,20 +37,20 @@ p { -webkit-margin-before: 0; -webkit-margin-after: 1.2em; line-height: 1.5em; }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/static\/css\/main\.scss}line{font-family:\00003140}}
 .nav { z-index: 20; color: white; background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.4)); /* For Safari 5.1 to 6.0 */ background: -o-linear-gradient(right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.4)); /* For Opera 11.1 to 12.0 */ background: -moz-linear-gradient(right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.4)); /* For Firefox 3.6 to 15 */ background: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.4)); /* Standard syntax */ }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/static\/css\/main\.scss}line{font-family:\00003149}}
-.nav .header-divider-container { width: 100%; height: 0; text-align: center; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/static\/css\/main\.scss}line{font-family:\00003153}}
-.nav .header-divider-container .header-divider { display: inline-block; margin: 0; height: 0; border-top: 1px solid black; width: 150px; }
-@media screen and (min-width: 0px) { @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/static\/css\/main\.scss}line{font-family:\00003149}}
-  .nav .header-divider-container { display: inline-block; } }
-@media screen and (min-width: 1000px) { @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/static\/css\/main\.scss}line{font-family:\00003149}}
-  .nav .header-divider-container { display: none; } }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/static\/css\/main\.scss}line{font-family:\00003168}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/static\/css\/main\.scss}line{font-family:\00003148}}
 .nav .title { float: left; font-family: Bebas-Neue-Bold; font-size: 3.2em; color: black; text-decoration: inherit; height: 82px; line-height: 82px; margin: 8px 0 0 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/static\/css\/main\.scss}line{font-family:\00003179}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/static\/css\/main\.scss}line{font-family:\00003159}}
 .nav .links { margin: 18px 0; height: 54px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/static\/css\/main\.scss}line{font-family:\00003184}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/static\/css\/main\.scss}line{font-family:\00003164}}
 .nav .links ul li a { display: inline-block; height: 50px; line-height: 50px; margin: 4px 0 0 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/static\/css\/main\.scss}line{font-family:\00003174}}
+.nav .nav-separator-container { position: absolute; top: 89px; height: 1px; width: 100%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/static\/css\/main\.scss}line{font-family:\00003179}}
+.nav .nav-separator-container .nav-separator { background-color: black; width: 120px; height: 100%; margin: 0 auto; }
+@media screen and (min-width: 0px) { @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/static\/css\/main\.scss}line{font-family:\00003174}}
+  .nav .nav-separator-container { display: block; } }
+@media screen and (min-width: 1000px) { @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/static\/css\/main\.scss}line{font-family:\00003174}}
+  .nav .nav-separator-container { display: none; } }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/static\/css\/main\.scss}line{font-family:\00003195}}
 .nav .links ul { position: relative; float: right; margin: 0 auto; overflow-x: auto; }

@@ -31,52 +31,52 @@ $small_padding: 1.1em;
 // fonts
 @font-face {
 	font-family: Adobe-Garamond-Pro;
-	src: url('/static/fonts/adobe-garamond-pro/Adobe-Garamond-Pro_2012.ttf')
+	src: url('/static/fonts/adobe-garamond-pro/Adobe-Garamond-Pro.woff');
 }
 
 @font-face {
 	font-family: Adobe-Garamond-Pro-Italic;
-	src: url('/static/fonts/adobe-garamond-pro/Adobe-Garamond-Pro-Italic_2009.ttf')
+	src: url('/static/fonts/adobe-garamond-pro/Adobe-Garamond-Pro-Italic.woff');
 }
 
 @font-face {
     font-family: Bebas-Neue;
-    src: url('/static/fonts/bebas_neue/BebasNeueRegular.otf'); 
+    src: url('/static/fonts/bebas_neue/BebasNeueRegular.otf');
 }
 
 @font-face {
     font-family: Bebas-Neue-Thin;
-    src: url('/static/fonts/bebas_neue/BebasNeueThin.otf'); 
+    src: url('/static/fonts/bebas_neue/bebas-neue-thin.woff');
 }
 
 @font-face {
     font-family: Bebas-Neue-Light;
-    src: url('/static/fonts/bebas_neue/BebasNeueLight.otf'); 
+    src: url('/static/fonts/bebas_neue/bebas-neue-light.woff');
 }
 
 @font-face {
     font-family: Bebas-Neue-Book;
-    src: url('/static/fonts/bebas_neue/BebasNeueBook.otf'); 
-}
+    src: url('/static/fonts/bebas_neue/bebas-neue-book.woff');
+}    
 
 @font-face {
     font-family: Bebas-Neue-Bold;
-    src: url('/static/fonts/bebas_neue/BebasNeueBold.otf'); 
+    src: url('/static/fonts/bebas_neue/BebasNeueBold.otf');
 }
 
 @font-face {
 	font-family: Bitter;
-	src: url('/static/fonts/bitter/Bitter-Regular.otf')
+	src: url('/static/fonts/bitter/Bitter-Regular.otf');
 }
 
 @font-face {
     font-family: Proxima-Nova-Thin;
-    src: url('/static/fonts/proxima_nova/proxima-nova-thin.otf'); 
+    src: url('/static/fonts/proxima_nova/proxima-nova-thin.woff');
 }
 
 @font-face {
     font-family: Proxima-Nova;
-    src: url('/static/fonts/proxima_nova/ProximaNova-Reg.otf'); 
+    src: url('/static/fonts/proxima_nova/proxima-nova-regular.woff');
 }
 
 
@@ -145,26 +145,6 @@ p {
   	background: -moz-linear-gradient(right, rgba(255, 255, 255, .9), rgba(255, 255, 255, 0.4)); /* For Firefox 3.6 to 15 */
   	background: linear-gradient(to right, rgba(255, 255, 255, .9), rgba(255, 255, 255, 0.4)); /* Standard syntax */
 
-
-  	.header-divider-container {
-  		width: 100%;
-  		height: 0;
-  		text-align: center;	
-	  	.header-divider {
-		  	display: inline-block;
-		  	margin: 0;
-	  		height: 0;
-	  		border-top: 1px solid black;
-	  		width: 150px;
-  		}
-  		@media screen and (min-width: 0px) {
-	  		display: inline-block;
-  		}
-  		@media screen and (min-width: 1000px) {
-  			display: none;
-  		}
-  	}
-
 	.title {
 		float: left;
 		font-family: Bebas-Neue-Bold;
@@ -188,6 +168,26 @@ p {
 					margin: ($nav-button-font-space-bottom / 2) 0 0 0;
 				}
 			}
+		}
+	}
+
+	.nav-separator-container {
+		position: absolute;
+		top: ($nav-size-mobile / 2) - 1;
+		height: 1px;
+		width: 100%;
+		.nav-separator {
+			background-color: black;
+			width: 120px;
+			height: 100%;
+			margin: 0 auto;
+		}
+
+		@media screen and (min-width: 0px) {
+			display: block;
+		}
+		@media screen and (min-width: 1000px) {
+			display: none;
 		}
 	}
 }

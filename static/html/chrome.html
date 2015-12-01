@@ -1,10 +1,10 @@
 <div class="nav">
-	<a ui-sref="about" class="title">
-		Alex Wyler
-	</a>
-	<div class="header-divider-container">
-		<hr class="header-divider">
+	<div>
+		<a ui-sref="about" class="title">
+			Alex Wyler
+		</a>
 	</div>
+
 	<div class="links">
 		<ul>
 			<li ng-class="{ selected: 'about' == $resolves.navItem }">
@@ -28,6 +28,9 @@
 				</a>
 			</li> -->
 		</ul>
+	</div>
+	<div class="nav-separator-container">
+		<div class="nav-separator"></div>
 	</div>
 </div>
 <div class="top-section-image" ng-style="{ 'background-image':'url(' + $resolves.backgroundImage.src + ')' }"></div>
