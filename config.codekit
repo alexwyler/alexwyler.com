@@ -183,6 +183,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/static\/images\/forlorn-ruins-small.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 351949,
+		"inputAbbreviatedPath": "\/static\/images\/forlorn-ruins-small.png",
+		"outputAbbreviatedPath": "\/static\/images\/forlorn-ruins-small.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/static\/images\/forlorn_ruins.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
