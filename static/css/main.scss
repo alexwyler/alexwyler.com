@@ -404,6 +404,18 @@ p {
 	    max-width: 800px;
 	    padding-bottom: 20px;
 	}
+
+	.youtube-iframe {
+		@media screen and (min-width: 0px) {
+			width: 420px;
+			height: 236px;
+		}
+
+		@media screen and (min-width: 600px) {
+			width: 560px;
+			height: 315px;
+		}
+	}
 }
 
 // home
