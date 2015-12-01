@@ -1,13 +1,14 @@
 <div class="nav">
-	<div class="title">
-		<a ui-sref="home">
-			Alex Wyler
-		</a>
+	<a ui-sref="about" class="title">
+		Alex Wyler
+	</a>
+	<div class="header-divider-container">
+		<hr class="header-divider">
 	</div>
 	<div class="links">
 		<ul>
-			<li ng-class="{ selected: 'home' == $resolves.navItem }">
-				<a ui-sref="home">
+			<li ng-class="{ selected: 'about' == $resolves.navItem }">
+				<a ui-sref="about">
 					About
 				</a>
 			</li>
@@ -45,7 +46,7 @@
 	<div class="links">
 		<ul>
 			<li>
-				<a ui-sref="home">
+				<a ui-sref="about">
 					About
 				</a>
 			</li>
@@ -59,6 +60,8 @@
 					Music
 				</a>
 			</li>
+		</ul>
+		<ul>
 			<li>
 				<a ui-sref="blog">
 					Blog

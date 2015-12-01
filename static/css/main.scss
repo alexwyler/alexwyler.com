@@ -9,11 +9,24 @@ $brand_yellow: #F7DE00;
 $brand_red: #df4244;
 $margin: 16px;
 $big_margin: 20px;
-$nav-size: 80px;
-$nav-size-mobile: 150px;
-$top-section-size: 400px;
-$top-section-size-mobile: 500px;
 $top-section-image-offset: 100px;
+
+
+// The font has extra space at the bottom
+$title-font-space-bottom: 16px;
+$nav-button-font-space-bottom: 8px;
+
+$nav-size: 90px;
+$nav-size-mobile: $nav-size * 2;
+
+$nav-button-square-size: $nav-size * .6;
+
+$top-section-size: 400px;
+$top-section-size-mobile: 520px;
+
+$big_padding: 2.2em;
+$small_padding: 1.1em;
+
 
 // fonts
 @font-face {
@@ -87,6 +100,10 @@ ul {
 	margin: 0;
     display: inline-block;
     list-style-type: none;
+
+    li {
+    	margin: 0;
+    }
 }
 
 [href] {
@@ -128,15 +145,49 @@ p {
   	background: -moz-linear-gradient(right, rgba(255, 255, 255, .9), rgba(255, 255, 255, 0.4)); /* For Firefox 3.6 to 15 */
   	background: linear-gradient(to right, rgba(255, 255, 255, .9), rgba(255, 255, 255, 0.4)); /* Standard syntax */
 
+
+  	.header-divider-container {
+  		width: 100%;
+  		height: 0;
+  		text-align: center;	
+	  	.header-divider {
+		  	display: inline-block;
+		  	margin: 0;
+	  		height: 0;
+	  		border-top: 1px solid black;
+	  		width: 150px;
+  		}
+  		@media screen and (min-width: 0px) {
+	  		display: inline-block;
+  		}
+  		@media screen and (min-width: 1000px) {
+  			display: none;
+  		}
+  	}
+
 	.title {
 		float: left;
 		font-family: Bebas-Neue-Bold;
 		font-size: 3.2em;
 		color: black;
+		text-decoration: inherit;
+		height: ($nav-size - $title-font-space-bottom / 2);
+		line-height: ($nav-size - $title-font-space-bottom / 2);
+		margin: ($title-font-space-bottom / 2) 0 0 0;
+	}
 
-		a {
-			color: inherit;
-			text-decoration: inherit;
+	.links {
+		margin: ($nav-size - $nav-button-square-size) / 2 0;
+		height: $nav-button-square-size;
+		ul {
+			li {
+				a {
+					display: inline-block;
+					height: $nav-button-square-size - $nav-button-font-space-bottom / 2;
+					line-height: $nav-button-square-size - $nav-button-font-space-bottom / 2;
+					margin: ($nav-button-font-space-bottom / 2) 0 0 0;
+				}
+			}
 		}
 	}
 }
@@ -151,7 +202,6 @@ p {
     	display: inline-block;
     	width: 90px;
     	text-align: center;
-    	padding: 10px 0 6px 0;
 
     	a {
 	    	font-size: 1.65em;
@@ -186,8 +236,7 @@ p {
 			float: inherit;
 			display: inline-block;
 			width: 100%;
-			padding: 10px 0;
-			margin: 0;
+			padding: 0;
 
 			ul {
 				float: inherit;
@@ -197,8 +246,8 @@ p {
 		.title {
 			display: inline-block;
 			width: 100%;
-			padding: 16px 0;
-			margin: 0;
+			display: inline-block;
+			padding: 0;
 		}
 	}
 }
@@ -209,17 +258,16 @@ p {
 		height: $nav-size;
 
 		.title {
-			display: inline-block;
 			width: auto;
-			margin: 0 $margin 0 $big_margin;
-			padding: 21px 0;
+			float: left;
+			padding: 0 0 0 20px;
 		}
 
 		.links {
-			margin: 0 $margin 0 $margin;
 			float: right;
-			padding: 18px 0;
+			padding: 0;
 			width: auto;
+			padding: 0 20px 0 0;
 		}
 	}
 }
@@ -293,7 +341,7 @@ p {
 	    max-width: 68em;
 	    margin-left: auto;
 	    margin-right: auto;
-	    padding: 34px;
+	    padding: 2em 1em;
 	    text-align: center;
 	}
 
@@ -341,12 +389,13 @@ p {
 	background: -moz-linear-gradient(#e0e0e0, #e9e9e9); /* For Firefox 3.6 to 15 */
 	background: linear-gradient(#e0e0e0, #e9e9e9); /* Standard syntax */
     text-align: center;
-    padding: 34px;
+    padding: $big_padding $small_padding;
 
     .links {
     	font-family: Bebas-Neue-Book;
     	margin-bottom: 16px;
 		ul {
+			padding-bottom: .4em;
 		    li {
 		    	font-size: 1.65em;
 		    	display: inline-block;
@@ -425,7 +474,7 @@ p {
 
 	.head-shot-container {
 		display: inline-block;
-		margin-bottom: 34px;
+		margin-bottom: $big_padding;
 
 		@media screen and (min-width: 0px) {
 			text-align: center;

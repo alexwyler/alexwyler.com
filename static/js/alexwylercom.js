@@ -88,13 +88,13 @@
                     };
                 }
             }
-        }).state('home', {
+        }).state('about', {
             url: '/',
             parent: 'chrome',
-            templateUrl: '/static/html/home.html', 
+            templateUrl: '/static/html/about.html', 
             resolve: {
                 navItem: function() {
-                    return 'home';
+                    return 'about';
                 },
                 title: function() {
                     return 'Welcome';
