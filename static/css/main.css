@@ -144,9 +144,9 @@ p { -webkit-margin-before: 0; -webkit-margin-after: 1.2em; line-height: 1.5em; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/static\/css\/main\.scss}line{font-family:\00003450}}
 .content .soundcloud-embed-container { display: inline-block; width: 100%; max-width: 800px; padding-bottom: 20px; }
 @media screen and (min-width: 0px) { @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/static\/css\/main\.scss}line{font-family:\00003457}}
-  .content .youtube-iframe { width: 420px; height: 236px; } }
+  .content .youtube-iframe { width: 336px; height: 236px; } }
 @media screen and (min-width: 750px) { @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/static\/css\/main\.scss}line{font-family:\00003457}}
-  .content .youtube-iframe { width: 560px; height: 315px; } }
+  .content .youtube-iframe { width: 560px; height: 189px; } }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/static\/css\/main\.scss}line{font-family:\00003471}}
 .about { display: inline-block; text-align: left; }
