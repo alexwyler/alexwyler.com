@@ -140,10 +140,6 @@ p {
 .nav {
 	z-index: 20;
 	color: white;
-  	background: -webkit-linear-gradient(left, rgba(255, 255, 255, .9), rgba(255, 255, 255, 0.4)); /* For Safari 5.1 to 6.0 */
-  	background: -o-linear-gradient(right, rgba(255, 255, 255, .9), rgba(255, 255, 255, 0.4)); /* For Opera 11.1 to 12.0 */
-  	background: -moz-linear-gradient(right, rgba(255, 255, 255, .9), rgba(255, 255, 255, 0.4)); /* For Firefox 3.6 to 15 */
-  	background: linear-gradient(to right, rgba(255, 255, 255, .9), rgba(255, 255, 255, 0.4)); /* Standard syntax */
 
 	.title {
 		float: left;
@@ -189,6 +185,20 @@ p {
 		@media screen and (min-width: 1000px) {
 			display: none;
 		}
+	}
+
+	@media screen and (min-width: 0px) {
+	  	background: -webkit-linear-gradient(left, rgba(255, 255, 255, .7), rgba(255, 255, 255, 0.4)); /* For Safari 5.1 to 6.0 */
+	  	background: -o-linear-gradient(right, rgba(255, 255, 255, .7), rgba(255, 255, 255, 0.4)); /* For Opera 11.1 to 12.0 */
+	  	background: -moz-linear-gradient(right, rgba(255, 255, 255, .7), rgba(255, 255, 255, 0.4)); /* For Firefox 3.6 to 15 */
+	  	background: linear-gradient(to right, rgba(255, 255, 255, .7), rgba(255, 255, 255, 0.4)); /* Standard syntax */
+	}
+
+	@media screen and (min-width: 800px) {
+	  	background: -webkit-linear-gradient(left, rgba(255, 255, 255, .9), rgba(255, 255, 255, 0.4)); /* For Safari 5.1 to 6.0 */
+	  	background: -o-linear-gradient(right, rgba(255, 255, 255, .9), rgba(255, 255, 255, 0.4)); /* For Opera 11.1 to 12.0 */
+	  	background: -moz-linear-gradient(right, rgba(255, 255, 255, .9), rgba(255, 255, 255, 0.4)); /* For Firefox 3.6 to 15 */
+	  	background: linear-gradient(to right, rgba(255, 255, 255, .9), rgba(255, 255, 255, 0.4)); /* Standard syntax */
 	}
 }
 
