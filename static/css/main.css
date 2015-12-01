@@ -38,11 +38,11 @@ p { -webkit-margin-before: 0; -webkit-margin-after: 1.2em; line-height: 1.5em; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/static\/css\/main\.scss}line{font-family:\00003140}}
 .nav { z-index: 20; color: white; background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.4)); /* For Safari 5.1 to 6.0 */ background: -o-linear-gradient(right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.4)); /* For Opera 11.1 to 12.0 */ background: -moz-linear-gradient(right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.4)); /* For Firefox 3.6 to 15 */ background: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.4)); /* Standard syntax */ }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/static\/css\/main\.scss}line{font-family:\00003148}}
-.nav .title { float: left; font-family: Bebas-Neue-Bold; font-size: 3.2em; color: black; text-decoration: inherit; height: 81px; line-height: 81px; margin: 9px 0 0 0; }
+.nav .title { float: left; font-family: Bebas-Neue-Bold; font-size: 3.2em; color: black; text-decoration: inherit; height: 80px; line-height: 80px; margin: 10px 0 0 0; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/static\/css\/main\.scss}line{font-family:\00003159}}
 .nav .links { margin: 18px 0; height: 54px; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/static\/css\/main\.scss}line{font-family:\00003164}}
-.nav .links ul li a { display: inline-block; height: 51px; line-height: 51px; margin: 3px 0 0 0; }
+.nav .links ul li a { display: inline-block; height: 52px; line-height: 52px; margin: 2px 0 0 0; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/static\/css\/main\.scss}line{font-family:\00003174}}
 .nav .nav-separator-container { position: absolute; top: 89px; height: 1px; width: 100%; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/static\/css\/main\.scss}line{font-family:\00003179}}
