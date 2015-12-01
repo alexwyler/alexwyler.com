@@ -89,7 +89,7 @@
                 }
             }
         }).state('about', {
-            url: '/',
+            url: '/?contact',
             parent: 'chrome',
             templateUrl: '/static/html/about.html', 
             resolve: {
@@ -100,8 +100,10 @@
                     return 'Welcome';
                 }
             },
-            onEnter: function($anchorScroll) {
-                $anchorScroll();
+            controller: function($anchorScroll, $stateParams) {
+                if ($stateParams.contact) {
+                    $anchorScroll('contact');
+                }
             }
         }).state('resume', {
             url: '/resume',
@@ -126,7 +128,6 @@
             },
             controller: function($scope) {
                 $scope.skill_ratings_by_type = skill_ratings_by_type;
-                console.log($scope);
             }
         }).state('blog', {
             url: '/blog',
