@@ -19,6 +19,52 @@
         "Take a left at the next street light.",
     ];
 
+    var skill_ratings_by_type = {
+        'Scaling in AWS': {
+            'EC2 (Ubuntu)': 3,
+            'RDS (MySQL)': 3,
+            'ELB': 5,
+            'Elasticache (Memcached)': 5,
+            'Route 53': 4,
+            'CloudWatch': 3
+        },
+        'Java EE': {
+            'Java 8': 5,
+            'Tomcat 8': 4,
+            'Spring MVC': 5,
+            'JSP': 5,
+            'IntelliJ': 3,
+            'Eclipse': 4,
+            'Jetty': 1
+        },
+        'Storage': {
+            'MySQL': 5,
+            'Memcached': 4,
+            'Cassandra': 2,
+            'Redis': 2,
+            'Ehcache': 3
+        },
+        'Web': {
+            'Javascript': 5,
+            'AngularJS': 5,
+            'HTML 5': 3,
+            'SEO': 3,
+            'CSS / Sass': 1,
+            'Gulp': 2,
+            'Jasmine': 1,
+            'PhantomJS': 2
+        },
+        'Potpourri': {
+            'Git': 5,
+            'Python 3': 3,
+            'Emacs': 3,
+            'Phabricator': 5,
+            'Travis CI': 5,
+            'PHP/Hack': 4,
+            'Did you read this far?': 5
+        }
+    };
+
     var app = angular.module('alexwylercom', [
         'ui.router',
         'aw.resolves'
@@ -76,7 +122,11 @@
                         src: '/static/images/macbook_code_bw.jpg',
                         opacity: 0.7
                     };
-                }
+                },
+            },
+            controller: function($scope) {
+                $scope.skill_ratings_by_type = skill_ratings_by_type;
+                console.log($scope);
             }
         }).state('blog', {
             url: '/blog',
@@ -132,7 +182,10 @@
         $rootScope.$on('$stateChangeSuccess', function() {
             $timeout(medium_embed_onload, 1);
             $rootScope.randomSubtitle = genRandomSubtitle();
-            console.log($rootScope.$resolves);
+        });
+
+        $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
+            console.log(error);
         });
     });
 
@@ -141,6 +194,7 @@
         return {
             scope: {},
             restrict: 'E',
+            replace: true,
             templateUrl: '/static/html/skill-rating.html',
             link: function(scope, element, attrs) {
                 scope.skill = attrs.skill;
