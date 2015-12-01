@@ -113,7 +113,7 @@ p { -webkit-margin-before: 0; -webkit-margin-after: 1.2em; line-height: 1.5em; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/static\/css\/main\.scss}line{font-family:\00003358}}
 .main-container .section-title { padding-bottom: 30px; font-size: 2.2em; font-family: Bebas-Neue-Light; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/static\/css\/main\.scss}line{font-family:\00003364}}
-.main-container .content-container-black { background: -webkit-linear-gradient(#353439, #333237); /* For Safari 5.1 to 6.0 */ background: -o-linear-gradient(#353439, #333237); /* For Opera 11.1 to 12.0 */ background: -moz-linear-gradient(#353439, #333237); /* For Firefox 3.6 to 15 */ background: linear-gradient(#353439, #333237); /* Standard syntax */ color: #e0e0e0; width: 100%; }
+.main-container .content-container-black { background: -webkit-linear-gradient(#353439, #333237); /* For Safari 5.1 to 6.0 */ background: -o-linear-gradient(#353439, #333237); /* For Opera 11.1 to 12.0 */ background: -moz-linear-gradient(#353439, #333237); /* For Firefox 3.6 to 15 */ background: linear-gradient(#353439, #333237); /* Standard syntax */ color: #e3e3e3; width: 100%; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/static\/css\/main\.scss}line{font-family:\00003372}}
 .main-container .content-container-black a { color: inherit; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/alexwyler\/alexwyler\.com\/static\/css\/main\.scss}line{font-family:\00003375}}
