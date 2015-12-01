@@ -408,18 +408,23 @@ p {
 
 // home
 .about {
-	max-width: 1000px;
 	display: inline-block;
 	text-align: left;
 
 	.head-shot-container {
-		width: 30%;
 		display: inline-block;
-		float: left;
+		margin-bottom: 34px;
+
+		@media screen and (min-width: 0px) {
+			text-align: center;
+		}
+
+		@media screen and (min-width: 550px) {
+			text-align: left;
+		}
 
 		.headshot {
-		    width: 200px;
-		    height: 200px;
+			display: inline-block;
 		    position: relative;
 		    overflow: hidden;
 		    border-radius: 50%;
@@ -431,6 +436,21 @@ p {
 			    height: 100%;
 		    	width: auto;
 			}
+
+			@media screen and (min-width: 0px) {
+	    		width: 200px;
+		    	height: 200px;
+			}
+
+			@media screen and (min-width: 550px) {
+	    		width: 120px;
+		    	height: 120px;
+			}
+
+			@media screen and (min-width: 775px) {
+	    		width: 200px;
+		    	height: 200px;
+			}
 		}
 	}
 	
@@ -439,7 +459,6 @@ p {
 		display: inline-block;
 		padding-top: 10px;	
 		float: left;
-		width: 70%;
 	}
 }
 
