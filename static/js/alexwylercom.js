@@ -119,7 +119,7 @@
                 },
                 backgroundImage: function() {
                     return {
-                        src: '/static/images/rsz_macbook_code_bw.jpg',
+                        src: '/static/images/rsz_macbook_code_bw.png',
                         opacity: 0.7
                     };
                 },

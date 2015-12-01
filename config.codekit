@@ -370,6 +370,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/static\/images\/rsz_macbook_code_bw.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1.43372e+06,
+		"inputAbbreviatedPath": "\/static\/images\/rsz_macbook_code_bw.png",
+		"outputAbbreviatedPath": "\/static\/images\/rsz_macbook_code_bw.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/static\/images\/thought1.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
