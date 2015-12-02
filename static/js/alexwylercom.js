@@ -183,6 +183,7 @@
         $rootScope.$on('$stateChangeSuccess', function() {
             $timeout(medium_embed_onload, 1);
             $rootScope.randomSubtitle = genRandomSubtitle();
+            ga('send', 'pageview');
         });
 
         $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {

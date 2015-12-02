@@ -960,7 +960,7 @@
 	"javascriptCreateSourceMap": 1,
 	"javascriptOutputStyle": 1,
 	"javascriptSyntaxCheckerStyle": 1,
-	"jsCheckerReservedNamesString": "angular, _, console, medium_embed_onload, require, process, __dirname",
+	"jsCheckerReservedNamesString": "angular, _, console, medium_embed_onload, require, process, __dirname, ga",
 	"jsHintFlags2": {
 		"asi": {
 			"active": 0,
