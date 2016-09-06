@@ -36,69 +36,158 @@
 	"buffers":
 	[
 		{
-			"contents": "",
-			"file": "alexwylercom/templatetags/__init__.py",
-			"file_size": 0,
-			"file_write_time": 130929458060000000,
+			"file": "static/css/main.scss",
 			"settings":
 			{
-				"buffer_size": 0,
+				"buffer_size": 12657,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "from django import template\nfrom django.template.loader import get_template\n\nregister = template.Library()\n\n@register.simple_tag\ndef include_raw(relative_filepath):\n	\"\"\" \n	Performs a template include without parsing the context, just dumps the template in.\n	\"\"\"\n\n	t = get_template(relative_filepath);\n	source = open(template_instance.origin.name, 'r').read()\n	return source\n",
-			"file": "alexwylercom/templatetags/include_raw.py",
-			"file_size": 374,
-			"file_write_time": 130929469970000000,
+			"file": "/Users/alexwyler/Dropbox/Docs/drugs",
 			"settings":
 			{
-				"buffer_size": 374,
+				"buffer_size": 13607,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "alexwylercom/settings.py",
+			"contents": "\n\nFullStory \n$849 / 500k / mo\n$3000 / 2000k / mo\n$6000 / 4000k / mo (whitelabels)\n$8000 / ??? / mo\n\n\n\n\n\nbudgeted $700 / mo\nAppSee $1000 / mo\nTableau $1250 / mo\nSlack \nOneLogin \nSauceLabs $450 / mo\n\n\n$500",
 			"settings":
 			{
-				"buffer_size": 2802,
+				"buffer_size": 203,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "alexwylercom/static/html/index.html",
+			"contents": "On the java server we regularly send/receive json to/from our clients as well our external dependencies.  Our library of choice is Jackson. (https://github.com/FasterXML/jackson) This document contains some info and guidelines for using Jackson.\n\n= Why Jackson =\n\n1. Its primary goal is to convert betwen POJO and json, rather than a `JSONObject`/`JSONArray` like structure.  POJOs give us type safety, statically defined structure, and familiarity.\n2. Spring MVC uses Jackson, so the same tools are used to configure how request and response bodies are serialized/deserialized.\n3. It's annotation-based configuration has full inheritance and per-field serialization options.\n\n= Converting to JSON =\n\nSuppose we have a class `ColorScheme` with a `List` of colors.\n\n```\nlang=java\npublic class ColorScheme  {\n   public String name;\n   public List<String> colors = new ArrayList<String>();\n}\n```\n\nSuppose I make a new `ColorScheme` object.\n\n```\nlang=java\nColorScheme packersScheme = new ColorScheme();\npackersScheme.name = \"Packers\";\npackersScheme.colors.add(\"green\");\npackersScheme.colors.add(\"gold\");\n```\n\nIf I wanted to convert this object to json, I would do the following:\n```\nlang=java\nString json = JacksonUtil.writeString(packersScheme);\n```\n\nThis resulting json will look like: \n\n```\nlang=json\n{\n  \"name\" : \"Packers\",\n  \"colors\" : [ \"green\", \"gold\" ]\n}\n```\n\n`JacksonUtil` is a helper class for basic json parsing and formatting.  It keeps a static, thread-safe singleton `ObjectMapper` (http://stackoverflow.com/a/3909846).  It also wraps the checked exceptions that throw from Jackson in unchecked  to avoid polluting the codebase with checked exception boilerplate code.  When able, use `JacksonUtil` instead of code like the following:\n\n```\nCOUNTEREXAMPLE\n// Don't do this\nString json;\ntry {\n     json = new ObjectMapper().writeValueAsString(packersScheme);\n} catch (JsonProcessingException e) {\n    throw new RuntimeException(e);\n}\n```\n\n= Converting from JSON =\n```\nlang=java\nString json = \"{\\\"name\\\":\\\"Vikings\\\",\\\"colors\\\":[\\\"purple\\\",\\\"yellow\\\"]}\";\nColorScheme vikingsScheme = JacksonUtil.read(json, ColorScheme.class);\n```\n\nNote: this will throw a wrapped `IOException` in the event of a parsing failure. For example:\n\n```\nCOUNTEREXAMPLE\nString invalidJson = \"is k bby\";\nColorScheme brokenScheme = JacksonUtil.read(invalidJson, ColorScheme.class);\n```\n\nThis will throw a wrapped `JsonParseException`: \n\n```\nCOUNTEREXAMPLE\ncom.fasterxml.jackson.core.JsonParseException: Unrecognized token 'is': was expecting ('true', 'false' or 'null')\n at [Source: java.io.StringReader@7cca31fc; line: 1, column: 3]\n	at com.fasterxml.jackson.core.JsonParser._constructError(JsonParser.java:1524)\n	at com.fasterxml.jackson.core.base.ParserMinimalBase._reportError(ParserMinimalBase.java:557)\n	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser._reportInvalidToken(ReaderBasedJsonParser.java:2042)\n	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser._handleOddValue(ReaderBasedJsonParser.java:1412)\n	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser.nextToken(ReaderBasedJsonParser.java:679)\n	at com.fasterxml.jackson.databind.ObjectMapper._initForReading(ObjectMapper.java:3031)\n	at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:2978)\n	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:2098)\n	at com.eatstreet.jackson.JacksonUtil.readString(JacksonUtil.java:54)\n```\n\n= Parsing Lists =\n\nSometimes, you'll want to parse json as a list of objects. Suppose you want to parse the following:\n```\nlang=json\n[  \n   {  \n      \"name\":\"Packers\",\n      \"colors\":[  \n         \"green\",\n         \"gold\"\n      ]\n   },\n   {  \n      \"name\":\"Vikings\",\n      \"colors\":[  \n         \"purple\",\n         \"yellow\"\n      ]\n   }\n]\n```\n\nYou can use `JacksonUtil`'s `readList` helper method.\n```\nlang=java\nString json = \"[{\\\"name\\\":\\\"Packers\\\",\\\"colors\\\":[\\\"green\\\",\\\"gold\\\"]},{\\\"name\\\":\\\"Vikings\\\",\\\"colors\\\":[\\\"purple\\\",\\\"yellow\\\"]}]\";\nList<ColorScheme> colorSchemes = JacksonUtil.readList(json, ColorScheme.class);\n```\n\n= HTTP Communication with Dependencies =\n\nMany times you'll need to use json to send and receive data with a external HTTP API.  Our goto HTTP library, `Resty2`, has helper methods built in.\n\n=== POST-ing json ===\n\nSuppose we are pushing data to service that stores color schemes, and that api method takes color scheme data in the request body. You could make that request as follows:\n\n```\nlang=java\nColorScheme packersScheme = new ColorScheme();\npackersScheme.name = \"Packers\";\npackersScheme.colors.add(\"green\");\npackersScheme.colors.add(\"gold\");\n\nResty2 httpClient = new Resty2();\nhttpClient.url(\"https://colorschemes.com/api/create\");\nhttpClient.method(\"POST\");\nhttpClient.dataObject(packersScheme);\nString responseBody = httpClient.go();\n```\n\n=== Parsing responses ===\nResty2 also has utility functions for parsing json from the response body of an http request.  Lets say `colorschemes.com`'s API returns a response like the following:\n\n```\nlang=json\n{\n  \"responseCode\": 0,\n  \"message\": \"Color scheme was successfully added.\"\n}\n```\n\nIf we wanted to process responses like these, we could write the following:\n\n```\nlang=java\nclass ColorSchemeAPIResponse {\n    public int responseCode;\n    public String message;\n}\n```\nand\n```\nlang=java\nResty2 httpClient = new Resty2();\nhttpClient.url(\"https://colorschemes.com/api/create\");\nhttpClient.method(\"POST\");\nhttpClient.dataObject(packersScheme);\n\nColorSchemeAPIResponse response = resty2.goObject();\n```\n\nNote: the are several benefits of using POJOs for responses.  One is type safetyl you can make statements like `if (response.responseCode != 0) { ... }` without casting or risking runtime type exceptions like `ClassCastExceptions`.  Another benefit is that the response is defined statically.  A reader does not need to wade through the logic that uses the response to know what all is contained in it.\n\n= Formatting Dates =\nJackson's default date serialization is into epoch timestamps (the number of milliseconds since January 1st, 1970, UTC).  Suppose I have the following code:\n\n```\nlang=java\nclass User  {\n    public String name;\n    public DateTime created;\n}\n```\n\nand\n```\nlang=java\nUser user = new User();\nuser.name = \"Alex\";\nuser.created = new DateTime();\n\nString json = JacksonUtil.writeString(user);\n```\n\nThe resulting json would be:\n```\nlang=json\n{\n  \"name\" : \"Alex\",\n  \"created\" : 1449194275826\n}\n```\n\nTo specify the format of a date, use the `@JsonFormat` annotation on the appropriate field.  For example:\n\n```\nlang=java\nclass User  {\n    public String name;\n\n    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern=\"yyyy-MM-dd hh:mm a z\", timezone=\"America/Chicago\")\n    public DateTime created\n}\n```\n\nThe same `User` object would now be serialized to:\n```\nlang=json\n{\n  \"name\" : \"Alex\",\n  \"created\" : \"2015-12-03 08:01 PM CST\"\n}\n```\n\nNote: the `@JsonFormat` annotation will also be used for parsing, which may be necessary for some inbound json. \nNote: Jackson can parse both `org.joda.time.DateTime` as well as `java.util.Date`;\n\nIf you need a date format to apply to a very large number of fields, you can configure a one-off `ObjectMapper` like so:\n\n```\nlang=java\nDateFormat dateFormat = new SimpleDateFormat(\"yyyy-MM-dd HH:mm a z\");\nObjectMapper mapper = new ObjectMapper().setDateFormat(dateFormat);\nString json = mapper.writeValueAsString(myObject);\n```\n\n= Excluding Fields in Serialization =\n\n=== Individual Fields ===\n\nIf you want to exclude a field from serialization, use thin `@JsonIgnore` annotation.  For example, if I have the following code:\n\n```    \nlang=java\nclass User  {\n    public String name;\n\n    @JsonIgnore\n    public String password;\n}\n```\nand\n```\nlang=java\nUser user = new User();\nuser.name = \"Alex\";\nuser.password = \"hunter2\";\n\nString json = JacksonUtil.writeString(user);\n```\n\nThe resulting json will not include a `password` field:\n```\nlang=json\n{\n  \"name\" : \"Alex\"\n}\n```\n\n=== Skipping \"`null`\"s ===\n\nIf you want to exclude all `null` fields, use the `@JsonInclude(JsonInclude.Include.NON_NULL)` on the object class.  Assume we have the following code: \n\n```\nlang=java\n@JsonInclude(JsonInclude.Include.NON_NULL)\nclass User  {\n    public String name;\n    public String nickname;\n}\n```\nand \n```\nlang=java\nUser alex = new User();\n alex.name = \"Alex\";\n\n User eric = new User();\n eric.name = \"Eric\";\n eric.nickname = \"Rick\";\n\n String alexJson = JacksonUtil.writeString(alex);\n String ericJson = JacksonUtil.writeString(eric);\n```\n\n`ericJson` will be:\n```\nlang=json\n{\n  \"name\" : \"Eric\",\n  \"nickname\" : \"Rick\"\n}\n```\nWhereas `alexJson` will not contain `nickname`, as shown:\n```\nlang=json\n{\n  \"name\" : \"Alex\"\n}\n```\n\n= Ignoring Fields in Parsing =\n\nJackson will throw an error if you try to parse json that contains keys which are not present in the destination class.  Suppose you have the following code: \n\n```\nlang=java\nclass User  {\n    public String name;\n}\n```\nand \n\n```\nlang=java\nString json = \"{\\\"name\\\":\\\"Gregori\\\", \\\"client-data\\\":\\\"e-cig\\\"}\";\nUser user = JacksonUtil.readString(json, User.class);\n```\n\nIt will throw a wrapped `UnrecognizedPropertyException`:\n```\nCOUNTEREXAMPLE\ncom.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unrecognized field \"client-data\" (class com.eatstreet.Alex$User), not marked as ignorable (one known property: \"name\"])\n at [Source: java.io.StringReader@41ece227; line: 1, column: 35] (through reference chain: com.eatstreet.User[\"client-data\"])\n	at com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException.from(UnrecognizedPropertyException.java:51)\n	at com.fasterxml.jackson.databind.DeserializationContext.reportUnknownProperty(DeserializationContext.java:671)\n	at com.fasterxml.jackson.databind.deser.std.StdDeserializer.handleUnknownProperty(StdDeserializer.java:773)\n	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.handleUnknownProperty(BeanDeserializerBase.java:1297)\n	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.handleUnknownVanilla(BeanDeserializerBase.java:1275)\n	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:247)\n	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:118)\n	at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:2993)\n	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:2098)\n	at com.eatstreet.jackson.JacksonUtil.readString(JacksonUtil.java:56)\n```\n\nTo fix this, add the `@JsonIgnoreProperties(ignoreUnknown = true)` annotation to the target class as follows:\n\n```\nlang=java\n    @JsonIgnoreProperties(ignoreUnknown = true)\n    class User  {\n        public String name;\n    }\n```\n",
 			"settings":
 			{
-				"buffer_size": 696,
+				"buffer_size": 10699,
+				"line_ending": "Unix",
+				"name": "On the java server we regularly send/receive json"
+			}
+		},
+		{
+			"contents": "missiles first\n--------------\n\nTo kill the 2h minion...\n2h 2h ?\n= 1/3 * 1/3 = 3/27\n\n2h F 2h\n2h 3h 2h\n= 1/3 * 2/3 * 1/3 = 2/27\n\nF 2h 2h\n3h 2h 2h\n= 2/3 * 1/3 * 1/3 = 2/27\n\nTo kill the 3h minion...\n3h 3h 3h\n1/3 * 1/3 * 1/3 = 1/27\n\ntotal is 8/27\n\nP(both minions) = 8/27 = .30\n\n\n\nflamecannon first\n-----------------\n\n(1/2) 2h dead:\nmissiles vs 3h\n3h 3h 3h\n1/2 * 1/2 * 1/2 = 1/8\ntotal is 1/8\n\n(1/2) 3h dead\nmissiles vs 2h\n2h 2h ? -> 1/2 * 1/2 * 1 = 2/8\n2h F 2h -> 1/2 * 1/2 * 1/2 = 1/8\nF 2h 2h -> 1/2 * 1/2 * 1/2 = 1/8\ntotal is 1/2\n\nP(both minions) = 1/2 * 1/8 + 1/2 * 1/2 = 1/16 + 4/16 = 5/16 = .31\n",
+			"settings":
+			{
+				"buffer_size": 594,
+				"line_ending": "Unix",
+				"name": "missiles first"
+			}
+		},
+		{
+			"file": "static/html/music.html",
+			"settings":
+			{
+				"buffer_size": 658,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "alexwylercom/static/css/main.scss",
+			"file": "static/html/about.html",
 			"settings":
 			{
-				"buffer_size": 5311,
+				"buffer_size": 1430,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/Users/alexwyler/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+			"file": "static/html/resume.html",
 			"settings":
 			{
-				"buffer_size": 56,
+				"buffer_size": 4359,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "alexwylercom/deploy.sh",
+			"contents": "Searching 1 file for \"class=\"section\"\"\n\n/Users/alexwyler/alexwyler.com/static/html/resume.html:\n   23  		</div>\n   24  		<div class=\"row\">\n   25: 			<div class=\"section\"></div>\n   26  			<div class=\"item\">\n   27  				<p>\n   ..\n   32  		</div>\n   33  		<div class=\"row\">\n   34: 			<div class=\"section\"></div>\n   35  			<div class=\"item\">\n   36  				<span class=\"title\">\n   ..\n   51  		</div>\n   52  		<div class=\"row\">\n   53: 			<div class=\"section\"></div>\n   54  			<div class=\"item\">\n   55  				<p>\n   ..\n   60  		</div>\n   61  		<div class=\"row\">\n   62: 			<div class=\"section\"></div>\n   63  			<div class=\"item\">\n   64  				<span class=\"title\">\n   ..\n   79  		</div>\n   80  		<div class=\"row\">\n   81: 			<div class=\"section\"></div>\n   82  			<div class=\"item\">\n   83  				<p>\n   ..\n   89  		</div>\n   90  		<div class=\"row\">\n   91: 			<div class=\"section\">\n   92  				Education\n   93  			</div>\n   ..\n  118  		<div class=\"resume\">\n  119  			<div class=\"row\">\n  120: 				<div class=\"section\">\n  121  					Scaling in AWS\n  122  				</div>\n  ...\n  124  			</div>\n  125  			<div class=\"row\">\n  126: 				<div class=\"section\"></div>\n  127  				<skill-rating-item skill=\"RDS (MySQL)\" rating=\"3\" />			\n  128  			</div>\n  129  			<div class=\"row\">\n  130: 				<div class=\"section\"></div>\n  131  				<skill-rating-item skill=\"ELB\" rating=\"5\" />			\n  132  			</div>\n  133  			<div class=\"row\">\n  134: 				<div class=\"section\"></div>\n  135  				<skill-rating-item skill=\"Elasticache (Memcached)\" rating=\"5\" />			\n  136  			</div>\n  137  			<div class=\"row\">\n  138: 				<div class=\"section\"></div>\n  139  				<skill-rating-item skill=\"Route 53\" rating=\"4\" />			\n  140  			</div>\n  141  			<div class=\"row\">\n  142: 				<div class=\"section\"></div>\n  143  				<skill-rating-item skill=\"CloudWatch\" rating=\"3\" />			\n  144  			</div>\n  145  			<div class=\"row\"></div>\n  146  			<div class=\"row\">\n  147: 				<div class=\"section\">\n  148  					Java EE\n  149  				</div>\n  ...\n  151  			</div>\n  152  			<div class=\"row\">\n  153: 				<div class=\"section\"></div>\n  154  				<skill-rating-item skill=\"Tomcat 8\" rating=\"4\" />			\n  155  			</div>\n  156  			<div class=\"row\">\n  157: 				<div class=\"section\"></div>\n  158  				<skill-rating-item skill=\"Spring MVC\" rating=\"5\" />			\n  159  			</div>\n  160  			<div class=\"row\">\n  161: 				<div class=\"section\"></div>\n  162  				<skill-rating-item skill=\"JSP\" rating=\"5\" />			\n  163  			</div>\n  164  			<div class=\"row\">\n  165: 				<div class=\"section\"></div>\n  166  				<skill-rating-item skill=\"IntelliJ\" rating=\"3\" />			\n  167  			</div>\n  168  			<div class=\"row\">\n  169: 				<div class=\"section\"></div>\n  170  				<skill-rating-item skill=\"Eclipse\" rating=\"4\" />			\n  171  			</div>\n  172  			<div class=\"row\">\n  173: 				<div class=\"section\"></div>\n  174  				<skill-rating-item skill=\"Jetty\" rating=\"1\" />			\n  175  			</div>\n  176  			<div class=\"row\"></div>\n  177  			<div class=\"row\">\n  178: 				<div class=\"section\">\n  179  					Storage\n  180  				</div>\n  ...\n  182  			</div>\n  183  			<div class=\"row\">\n  184: 				<div class=\"section\"></div>\n  185  				<skill-rating-item skill=\"Memcached\" rating=\"4\" />			\n  186  			</div>\n  187  			<div class=\"row\">\n  188: 				<div class=\"section\"></div>\n  189  				<skill-rating-item skill=\"Cassandra\" rating=\"2\" />			\n  190  			</div>\n  191  			<div class=\"row\">\n  192: 				<div class=\"section\"></div>\n  193  				<skill-rating-item skill=\"Redis\" rating=\"2\" />			\n  194  			</div>\n  195  			<div class=\"row\">\n  196: 				<div class=\"section\"></div>\n  197  				<skill-rating-item skill=\"Ehcache\" rating=\"3\" />			\n  198  			</div>\n  199  			<div class=\"row\"></div>\n  200  			<div class=\"row\">\n  201: 				<div class=\"section\">\n  202  					Web\n  203  				</div>\n  ...\n  205  			</div>\n  206  			<div class=\"row\">\n  207: 				<div class=\"section\"></div>\n  208  				<skill-rating-item skill=\"HTML 5\" rating=\"3\" />			\n  209  			</div>\n  210  			<div class=\"row\">\n  211: 				<div class=\"section\"></div>\n  212  				<skill-rating-item skill=\"Sass\" rating=\"1\" />			\n  213  			</div>\n  214  			<div class=\"row\">\n  215: 				<div class=\"section\"></div>\n  216  				<skill-rating-item skill=\"Grunt\" rating=\"2\" />			\n  217  			</div>\n  218  			<div class=\"row\">\n  219: 				<div class=\"section\"></div>\n  220  				<skill-rating-item skill=\"Gulp\" rating=\"2\" />			\n  221  			</div>\n  222  			<div class=\"row\">\n  223: 				<div class=\"section\"></div>\n  224  				<skill-rating-item skill=\"Jasmine\" rating=\"1\" />			\n  225  			</div>\n  226  			<div class=\"row\">\n  227: 				<div class=\"section\"></div>\n  228  				<skill-rating-item skill=\"SEO\" rating=\"3\" />			\n  229  			</div>\n  230  			<div class=\"row\"></div>\n  231  			<div class=\"row\">\n  232: 				<div class=\"section\">\n  233  					Potpourri\n  234  				</div>\n  ...\n  236  			</div>\n  237  			<div class=\"row\">\n  238: 				<div class=\"section\"></div>\n  239  				<skill-rating-item skill=\"Python 3\" rating=\"3\" />			\n  240  			</div>\n  241  			<div class=\"row\">\n  242: 				<div class=\"section\"></div>\n  243  				<skill-rating-item skill=\"Emacs\" rating=\"3\" />			\n  244  			</div>\n  245  			<div class=\"row\">\n  246: 				<div class=\"section\"></div>\n  247  				<skill-rating-item skill=\"Phabricator\" rating=\"5\" />			\n  248  			</div>\n  249  			<div class=\"row\">\n  250: 				<div class=\"section\"></div>\n  251  				<skill-rating-item skill=\"Travis CI\" rating=\"5\" />			\n  252  			</div>\n  253  			<div class=\"row\">\n  254: 				<div class=\"section\"></div>\n  255  				<skill-rating-item skill=\"PHP/Hack\" rating=\"4\" />			\n  256  			</div>\n  257  			<div class=\"row\">\n  258: 				<div class=\"section\"></div>\n  259  				<skill-rating-item skill=\"Did you read this far?\" rating=\"5\" />			\n  260  			</div>\n\n38 matches in 1 file\n",
 			"settings":
 			{
-				"buffer_size": 58,
+				"buffer_size": 5705,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "/Users/alexwyler/Dropbox/WoW/AddOns/AdiBags/modules/ItemLevel.lua",
+			"settings":
+			{
+				"buffer_size": 9389,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "\n\nhttps://www.facebook.com/dialog/oauth?redirect_uri=http%3A%2F%2Flocal.eatstreet.com%3A8080%2Ffbloginaction&state=%7Bback%3Dhttps%3A%2F%2Featstreet.com%2Ffoodcourt%2Fcart%2FCartBody.jsp%7D&client_id=392856994135034&display=popup&scope=email\n\nRenewals@godaddy.com\nYour Secure Certificate is coming up for renewal\n\ndonotreply@godaddy.com\ndonotreply@godaddy.com\n\n\ncurl -X POST \\\n -H 'Content-Type: application/json' \\\n -d '{  \n   \"event\":\"issue_impact_change\",\n   \"payload_type\":\"issue\",\n   \"payload\":{  \n      \"display_id\":0,\n      \"title\":\"Fabric Integration Test\",\n      \"method\":\"some_crashed_method\",\n      \"crashes_count\":0,\n      \"impacted_devices_count\":0,\n      \"url\":\"http://example.com/path/to/fabric/issue\",\n      \"app\":{  \n         \"name\":\"test-app-name\",\n         \"bundle_identifier\":\"test-bundle-identifier\",\n         \"platform\":\"test-platform\"\n      }\n   }\n}' \\\n 'http://local.eatstreet.com:8080/api/v2/crashalytics_webhook'\n\n\n\n {\n  \"event\": \"issue_impact_change\",\n  \"payload_type\": \"issue\",\n  \"payload\": {\n    \"display_id\": 123 ,\n    \"title\": \"Issue Title\" ,\n    \"method\": \"methodName of issue\",\n    \"impact_level\": 2,\n    \"crashes_count\": 54,\n    \"impacted_devices_count\": 16,\n    \"url\": \"http://crashlytics.com/full/url/to/issue\"\n  }\n}",
+			"settings":
+			{
+				"buffer_size": 1252,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "alexwylercom/static/html/blog.html",
+			"file": "/Applications/DeSmuME.app/Contents/MacOS/DeSmuME",
+			"settings":
+			{
+				"buffer_size": 31075040,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "static/html/index.html",
+			"settings":
+			{
+				"buffer_size": 1668,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/alexwyler/Downloads/restaurantmenu.html",
+			"settings":
+			{
+				"buffer_size": 3118,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/alexwyler/Downloads/updateuser.html",
+			"settings":
+			{
+				"buffer_size": 7574,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<div class=\"content\">\n\n        <!-- Content goes here depending on the link you clicked -->\n\n        <div class=\"main-info\">\n            <span class=\"main-info__header\">Order Submit\n                <span class=\"main-info__tag main-info__tag__post\">Post</span>\n                <span class=\"main-info__text main-info__tag main-info__tag__filename\">/publicapi/v2/send-order</span>\n            </span>\n            <span class=\"main-info__text\">This API processes new orders.  The endpoint validates the input, charges the userâs payment card (if card payment is selected), and transmits the order to the restaurant.</span>\n        </div>\n        <div class=\"widget-content\">\n\n        <div class=\"widget-table\">\n            <div class=\"widget-table__header\">Order Submit</div>\n            <form>\n                <div class=\"widget-table--body\">\n                    <input type=\"hidden\" name=\"httpMethod\" value=\"POST\">\n                    <input type=\"hidden\" name=\"oauth\" value=\"\">\n                    <input type=\"hidden\" name=\"methodUri\" value=\"/send-order\"><input type=\"hidden\" name=\"accessToken\" id=\"accessToken\"><input type=\"hidden\" name=\"json\" id=\"send_orderjson\"><input type=\"hidden\" name=\"locations\" id=\"send_orderlocations\"><span class=\"description\">This API processes new orders. The endpoint validates the input, charges the userâs payment card (if card payment is selected), and transmits the order to the restaurant.</span><br><br>\n                    <div class=\"header\">\n                        <div>\n                            <div class=\"col-description header\">Description </div>\n                            <div class=\"location header\">Location</div>\n                            <div class=\"col-type header\">Type</div>\n                            <div class=\"col-parameter header\">Value</div>\n                            <div class=\"col-name header\">Parameter</div>\n                        </div>\n                    </div>\n                    <table id=\"send_order\" class=\"\"><fieldset class=\"alpaca-fieldset ui-widget-content alpaca-fieldset-no-legend ui-widget alpaca-field alpaca-field-optional alpaca-field-invalid\" alpaca-field-id=\"alpaca2\"><div class=\"alpaca-fieldset-helper\" id=\"alpaca2-fieldset-helper\"></div><div class=\"alpaca-fieldset-items-container\"><div class=\"container alpaca-fieldset-item-container alpaca-item-container-first alpaca-item-container-last\" id=\"alpaca3-item-container\" alpaca-id=\"alpaca3\" data-alpaca-item-container-item-key=\"order_json\"><div class=\"required ui-widget alpaca-field alpaca-field-required alpaca-controlfield alpaca-field-invalid\" alpaca-field-id=\"alpaca3\"><div class=\"col-description  body  alpaca-controlfield-helper-text alpaca-controlfield-helper\" id=\"alpaca3-controlfield-helper\">The order JSON representing an order to be processed by the EatStreet API</div><div class=\"location body alpaca-data-label\">body</div><div class=\"col-type body alpaca-data-label\">string</div><div class=\"col-parameter body alpaca-controlfield-container alpaca-controlfield-text alpaca-controlfield-textarea\"><textarea id=\"alpaca3\" placeholder=\"required\" rows=\"5\" cols=\"20\" name=\"values_1\"></textarea></div><div class=\"col-name body  alpaca-controlfield-label\" id=\"alpaca3-controlfield-label\">order_json</div><span></span><div class=\"ui-state-error-text alpaca-controlfield-message alpaca-controlfield-message-element\" id=\"alpaca3-field-message-0\"></div></div></div></div></fieldset></table>\n                    <input type=\"submit\" id=\"Search Restaurants\" value=\"Submit\" class=\"search btn btn-action\">\n                    \n                </div>\n            </form>\n        </div>\n    </div>",
+			"settings":
+			{
+				"buffer_size": 3639,
+				"line_ending": "Unix",
+				"name": "<div class=\"content\">"
+			}
+		},
+		{
+			"file": "/Users/alexwyler/Downloads/passport info",
+			"settings":
+			{
+				"buffer_size": 849,
+				"line_ending": "Unix",
+				"name": "\"notes\": \"This API processes new orders. The endpo"
+			}
+		},
+		{
+			"contents": "Alex Wyler [1] api key = 796548bbedb0954de41ee9406039e889\nStreet Eating Madison api key = 358\nMussamun Pork api key = 1518307\nExtra white rice option container = 3710201\nExtra white rice \"yes\" option value = 9453746\n\nPhat Thai Shrim api key = 1518342\nExtra shrimp (1.50) \"yes\" api key = 9454246\n\n131 West Wilson St. address api key = c1a36d45bc7330008e8bc5434df05be11ad4d22dd99b94c4\ntest order card api key = 05ca65f7059b87f691358c6c65c90a6aafb37c21f67f4e36\n\n\n{\n	\"items\": [{\n		\"api_key\": \"1518342\",\n		\"customization_choices\": [{\n			\"api_key\": \"9454246\"\n		}],\n		\"comments\": \"Pile it high!\"\n	}],\n 	\"method\": \"delivery\",\n 	\"payment\": \"card\",\n	\"tip\": 2.86,\n	\"restaurant_api_key\": \"358\",\n	\"comments\": \"Ring the doorbell\",\n	\"card\": {\n    	\"api_key\": \"05ca65f7059b87f691358c6c65c90a6aafb37c21f67f4e36\"\n	},\n	\"address\": {\n    	\"api_key\": \"c1a36d45bc7330008e8bc5434df05be11ad4d22dd99b94c4\"\n	},\n	\"recipient\": {\n		\"api_key\": \"796548bbedb0954de41ee9406039e889\"\n	}\n}\n\n\n\n<div class=\"result prettyprint\"><h4>Call</h4><pre class=\"call\">https://api.eatstreet.com/publicapi/v2/restaurant/search?method=both</pre><h4 class=\"reqHeadText\" style=\"display: none;\">Request Headers</h4><pre class=\"requestHeaders\" style=\"display: none;\"></pre><h4 class=\"reqBodyText\" style=\"display: none;\">Request Body</h4><pre class=\"requestBody\" style=\"display: none;\"></pre><h4>Response Code</h4><pre class=\"code prettyprint\"><span class=\"lit\">400</span></pre><h4>Response Body<a class=\"select-all\" href=\"#\">Copy Text</a></h4><pre class=\"response prettyprint\"><span class=\"str\">\"{\\\"error\\\":true,\\\"code\\\":400,\\\"details\\\":\\\"Must specify either latitude and longitude or free form address.\\\"}\"</span></pre></div>\n\n\ncurl -X POST \\\n -H 'X-EATSTREET-CLIENT-AUTHENTICATION: 1' \\\n -H 'Content-Type: application/json' \\n -d '{\"email\":\"\",\"password\":\"\"}' \\\n http://local.api.eatstreet.com:8080/publicapi/v1/signin\n\n\nsearch\n           \"notes:\" :\"minFreeDelivery will be -1 for restaurants that do not offer free delivery for orders over a certain dollar amount, otherwise it will be that dollar amount.\\n\\nminWaitTime is the minimum number of minutes an order will take to be delivered.\\n\\nmaxWaitTime is the maximum number of minutes an order will take to be delivered.\"\n\nplaceholder=\"required\"\n\n<div class=\"widget-table__text\">When <span class=\"code-example\">include_customizations</span> is true, the menu will include all toppings  or ingredient choices for every item on the menu.  This will provide all the information needed to build out a full order, but can result in a very large response, containing much extra extraneous data that a user will never encounter unless they interact with a particular menu item.  For this reason, EatStreet suggests using the Customizations API to request customizations on a per-product basis.</div>\n\n\n                    <div class=\"widget-table__text\">Every customization will be one of the following types: \n                    </div>\n                    <div class=\"widget-table__text\">\n                    <span class=\"bold\">Checkbox</span> Renders to a checkbox.  Will have customization choices \"Yes\" and \"No\"\n                    </div>\n                    <div class=\"widget-table__text\">\n                    <span class=\"bold\">Pizza</span> - Renders a pizza topping selection.  Each of these toppings will have customization choices \"None\", \"1st Half\", \"2nd Half\", and \"Full\"\n                    </div>\n                    <div class=\"widget-table__text\">\n                    <span class=\"bold\">Other</span> - Renders as a dropdown or a radio selection.\n                    </div>\n\n                    maxCount pertains to the aggregate \"count\" of the various customization choices within a particular customization group.  For instance, a group might be \"Pick One Sauce\", in which case, maxCount will be 1, and every \"Yes\" value of the checkboxes will have a count of 1.</div>\n\n\n                    This API processes new orders. The endpoint validates the input, charges the userâs payment card (if card payment is selected), and transmits the order to the restaurant. If a user id is specified, a user may save the address and card for later use. If a user is not specified, the order is treated as a guest checkout.",
+			"settings":
+			{
+				"buffer_size": 4222,
+				"line_ending": "Unix",
+				"name": "Alex Wyler [1] api key = 796548bbedb0954de41ee9406"
+			}
+		},
+		{
+			"file": "static/html/skill-rating.html",
 			"settings":
 			{
 				"buffer_size": 216,
@@ -106,98 +195,26 @@
 			}
 		},
 		{
-			"file": "alexwylercom/static/js/vendor/medium/embed.js",
+			"file": "static/html/chrome.html",
 			"settings":
 			{
-				"buffer_size": 6753,
+				"buffer_size": 2590,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/Users/alexwyler/eatstreet/web/tools/travis_setup.sh",
+			"file": "static/js/alexwylercom.js",
 			"settings":
 			{
-				"buffer_size": 2956,
+				"buffer_size": 6332,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "alexwylercom/static/html/home.html",
+			"file": "index.js",
 			"settings":
 			{
-				"buffer_size": 33,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "alexwylercom/static/html/chrome.html",
-			"settings":
-			{
-				"buffer_size": 2150,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "alexwylercom/static/html/music.html",
-			"settings":
-			{
-				"buffer_size": 660,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "alexwylercom/static/js/alexwylercom.js",
-			"settings":
-			{
-				"buffer_size": 3667,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "alexwylercom/static/html/resume.html",
-			"settings":
-			{
-				"buffer_size": 125,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "alexwylercom/static/js/resolves.js",
-			"settings":
-			{
-				"buffer_size": 487,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "alexwylercom/urls.py",
-			"settings":
-			{
-				"buffer_size": 747,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "alexwylercom/views.py",
-			"settings":
-			{
-				"buffer_size": 136,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": ".sublime-project",
-			"settings":
-			{
-				"buffer_size": 45,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/Users/alexwyler/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
-			"settings":
-			{
-				"buffer_size": 39,
+				"buffer_size": 379,
 				"line_ending": "Unix"
 			}
 		}
@@ -235,22 +252,52 @@
 	"expanded_folders":
 	[
 		"/Users/alexwyler/alexwyler.com",
-		"/Users/alexwyler/alexwyler.com/alexwylercom",
-		"/Users/alexwyler/alexwyler.com/alexwylercom/static",
-		"/Users/alexwyler/alexwyler.com/alexwylercom/static/css",
-		"/Users/alexwyler/alexwyler.com/alexwylercom/static/fonts",
-		"/Users/alexwyler/alexwyler.com/alexwylercom/static/fonts/bebas_neue",
-		"/Users/alexwyler/alexwyler.com/alexwylercom/static/fonts/bitter",
-		"/Users/alexwyler/alexwyler.com/alexwylercom/static/html",
-		"/Users/alexwyler/alexwyler.com/alexwylercom/static/images",
-		"/Users/alexwyler/alexwyler.com/alexwylercom/static/js",
-		"/Users/alexwyler/alexwyler.com/alexwylercom/static/js/vendor",
-		"/Users/alexwyler/alexwyler.com/alexwylercom/static/js/vendor/medium",
-		"/Users/alexwyler/alexwyler.com/alexwylercom/templates"
+		"/Users/alexwyler/alexwyler.com/static",
+		"/Users/alexwyler/alexwyler.com/static/css",
+		"/Users/alexwyler/alexwyler.com/static/css/vendor",
+		"/Users/alexwyler/alexwyler.com/static/css/vendor/Skeleton-2.0.4",
+		"/Users/alexwyler/alexwyler.com/static/fonts",
+		"/Users/alexwyler/alexwyler.com/static/fonts/adobe-garamond-pro",
+		"/Users/alexwyler/alexwyler.com/static/fonts/bebas_neue",
+		"/Users/alexwyler/alexwyler.com/static/fonts/proxima_nova",
+		"/Users/alexwyler/alexwyler.com/static/html",
+		"/Users/alexwyler/alexwyler.com/static/js"
 	],
 	"file_history":
 	[
+		"/Library/PreferencePanes/MySQL.prefPane/Contents/Info.plist",
+		"/Users/alexwyler/Downloads/jquery-1.11.3.js",
+		"/Users/alexwyler/alexwyler.com/static/fonts/proxima_nova/proxima-nova-thin.ttf",
+		"/Users/alexwyler/alexwyler.com/static/css/vendor/Skeleton-2.0.4/skeleton.css",
+		"/Users/alexwyler/alexwyler.com/static/html/home.html",
+		"/Users/alexwyler/alexwyler.com/static/css/main.css",
+		"/Users/alexwyler/Exprecss/documentation.html",
+		"/Users/alexwyler/alexwyler.com/static/html/chrome.html",
 		"/Users/alexwyler/alexwyler.com/node_modules/express/index.js",
+		"/Users/alexwyler/Dropbox/game serials",
+		"/Users/alexwyler/alexwyler.com/min/index-min.js",
+		"/Users/alexwyler/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/alexwyler/alexwyler.com/.sublime-project",
+		"/Users/alexwyler/alexwyler.com/alexwylercom/views.py",
+		"/Users/alexwyler/alexwyler.com/alexwylercom/urls.py",
+		"/Users/alexwyler/alexwyler.com/alexwylercom/static/js/resolves.js",
+		"/Users/alexwyler/alexwyler.com/alexwylercom/static/html/resume.html",
+		"/Users/alexwyler/alexwyler.com/alexwylercom/static/js/alexwylercom.js",
+		"/Users/alexwyler/alexwyler.com/alexwylercom/static/html/music.html",
+		"/Users/alexwyler/.bash_profile",
+		"/Users/alexwyler/alexwyler.com/index.js",
+		"/Users/alexwyler/alexwyler.com/alexwylercom/static/html/chrome.html",
+		"/Users/alexwyler/alexwyler.com/alexwylercom/static/html/home.html",
+		"/Users/alexwyler/eatstreet/web/tools/travis_setup.sh",
+		"/Users/alexwyler/alexwyler.com/alexwylercom/static/js/vendor/medium/embed.js",
+		"/Users/alexwyler/alexwyler.com/alexwylercom/static/html/blog.html",
+		"/Users/alexwyler/alexwyler.com/alexwylercom/deploy.sh",
+		"/Users/alexwyler/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/alexwyler/alexwyler.com/alexwylercom/templatetags/__init__.py",
+		"/Users/alexwyler/alexwyler.com/alexwylercom/templatetags/include_raw.py",
+		"/Users/alexwyler/alexwyler.com/alexwylercom/settings.py",
+		"/Users/alexwyler/alexwyler.com/alexwylercom/static/html/index.html",
+		"/Users/alexwyler/alexwyler.com/alexwylercom/static/css/main.scss",
 		"/Users/alexwyler/alexwyler.com/alexwylercom/static/html/head.html",
 		"/Users/alexwyler/alexwyler.com/alexwylercom/static/css/main.css",
 		"/Users/alexwyler/alexwyler.com/alexwylercom/templates/django_index.html",
@@ -261,7 +308,6 @@
 		"/var/folders/0f/_3hhnwf96w5_xsf_py6y33sr0000gn/T/edit.6anqgamdn7ggo04s/differential-update-comments",
 		"/var/folders/0f/_3hhnwf96w5_xsf_py6y33sr0000gn/T/edit.uwat1sax00gcskg8/new-commit",
 		"/var/folders/0f/_3hhnwf96w5_xsf_py6y33sr0000gn/T/edit.efjptsyfd3scowgg/new-commit",
-		"/Users/alexwyler/.bash_profile",
 		"/var/folders/0f/_3hhnwf96w5_xsf_py6y33sr0000gn/T/edit.8fqxjklk0s0swss8/new-commit",
 		"/Users/alexwyler/.gitconfig",
 		"/Users/alexwyler/alexwyler.com/.git/COMMIT_EDITMSG",
@@ -271,7 +317,6 @@
 		"/Users/alexwyler/alexwyler.com/alexwylercom/models.py",
 		"/Users/alexwyler/Heimerdinger Guide",
 		"/Users/alexwyler/mrddebugger",
-		"/Users/alexwyler/alexwyler.com/alexwylercom/settings.py",
 		"/Users/alexwyler/alexwyler.com/alexwylercom/manage.py",
 		"/Library/Python/2.7/site-packages/django/contrib/admin/templates/admin/index.html",
 		"/Users/alexwyler/alexwyler.com/alexwylercom/templates/main.html",
@@ -303,6 +348,7 @@
 		"height": 93.0,
 		"where_history":
 		[
+			"resume.html"
 		]
 	},
 	"find_state":
@@ -310,6 +356,29 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"updateManu",
+			"update",
+			"Proxima-Nova",
+			"34",
+			"34px",
+			"34PX",
+			"youtu",
+			"@media",
+			"console",
+			"@media",
+			"1000px",
+			"empty",
+			"class=\"where-when\"",
+			"class=\"item\"",
+			"class=\"section\"",
+			"row",
+			"@media screen",
+			"top-section-size",
+			"top-section-image",
+			"\n		p {\n			padding-right: 10px;\n		}",
+			"brand_green",
+			".titl",
+			"Bitter",
 			"bitter",
 			"B",
 			";\n",
@@ -341,6 +410,9 @@
 		"regex": false,
 		"replace_history":
 		[
+			"class=\"three columns where-when\"",
+			"class=\"six columns item\"",
+			"class=\"three columns section\"",
 			"\\u0027"
 		],
 		"reverse": false,
@@ -357,11 +429,435 @@
 			[
 				{
 					"buffer": 0,
-					"file": "alexwylercom/templatetags/__init__.py",
+					"file": "static/css/main.scss",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 12657,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								10879,
+								10879
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 9626.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 14,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/Users/alexwyler/Dropbox/Docs/drugs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 13607,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								12911,
+								12911
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 4257.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 13,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 203,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								203,
+								203
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 10699,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								10699,
+								10699
+							]
+						],
+						"settings":
+						{
+							"auto_name": "On the java server we regularly send/receive json",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 594,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								274,
+								274
+							]
+						],
+						"settings":
+						{
+							"auto_name": "missiles first",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 16,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "static/html/music.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 658,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								141,
+								141
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 18,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "static/html/about.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1430,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								185,
+								185
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 17,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "static/html/resume.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4359,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								543,
+								543
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 19,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5705,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										154,
+										169
+									],
+									[
+										285,
+										300
+									],
+									[
+										433,
+										448
+									],
+									[
+										564,
+										579
+									],
+									[
+										712,
+										727
+									],
+									[
+										843,
+										858
+									],
+									[
+										978,
+										993
+									],
+									[
+										1107,
+										1122
+									],
+									[
+										1258,
+										1273
+									],
+									[
+										1401,
+										1416
+									],
+									[
+										1564,
+										1579
+									],
+									[
+										1712,
+										1727
+									],
+									[
+										1896,
+										1911
+									],
+									[
+										2018,
+										2033
+									],
+									[
+										2166,
+										2181
+									],
+									[
+										2316,
+										2331
+									],
+									[
+										2459,
+										2474
+									],
+									[
+										2607,
+										2622
+									],
+									[
+										2754,
+										2769
+									],
+									[
+										2933,
+										2948
+									],
+									[
+										3055,
+										3070
+									],
+									[
+										3204,
+										3219
+									],
+									[
+										3353,
+										3368
+									],
+									[
+										3498,
+										3513
+									],
+									[
+										3679,
+										3694
+									],
+									[
+										3797,
+										3812
+									],
+									[
+										3943,
+										3958
+									],
+									[
+										4087,
+										4102
+									],
+									[
+										4232,
+										4247
+									],
+									[
+										4376,
+										4391
+									],
+									[
+										4523,
+										4538
+									],
+									[
+										4700,
+										4715
+									],
+									[
+										4824,
+										4839
+									],
+									[
+										4972,
+										4987
+									],
+									[
+										5117,
+										5132
+									],
+									[
+										5268,
+										5283
+									],
+									[
+										5417,
+										5432
+									],
+									[
+										5565,
+										5580
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								368,
+								368
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 1,
+							"result_base_dir": "",
+							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "/Users/alexwyler/Dropbox/WoW/AddOns/AdiBags/modules/ItemLevel.lua",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9389,
 						"regions":
 						{
 						},
@@ -374,93 +870,7 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 15,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "alexwylercom/templatetags/include_raw.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 374,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								358,
-								358
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 11,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "alexwylercom/settings.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2802,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2213,
-								2213
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 12,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "alexwylercom/static/html/index.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 696,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								630,
-								630
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"syntax": "Packages/Lua/Lua.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
@@ -471,96 +881,40 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "alexwylercom/static/css/main.scss",
+					"buffer": 10,
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5311,
+						"buffer_size": 1252,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2035,
-								2035
+								627,
+								627
 							]
 						],
 						"settings":
 						{
+							"auto_name": "",
 							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1048.0,
+						"translation.y": 56.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "/Users/alexwyler/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+					"buffer": 11,
+					"file": "/Applications/DeSmuME.app/Contents/MacOS/DeSmuME",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 56,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								56,
-								56
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "alexwylercom/deploy.sh",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 58,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								58,
-								58
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "alexwylercom/static/html/blog.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 216,
+						"buffer_size": 31075040,
 						"regions":
 						{
 						},
@@ -568,93 +922,35 @@
 						[
 							[
 								0,
-								216
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage"
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
-					"file": "alexwylercom/static/js/vendor/medium/embed.js",
+					"buffer": 12,
+					"file": "static/html/index.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6753,
+						"buffer_size": 1668,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6019,
-								6019
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 27.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "/Users/alexwyler/eatstreet/web/tools/travis_setup.sh",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2956,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								218,
-								218
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "alexwylercom/static/html/home.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 33,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								21,
-								21
+								648,
+								648
 							]
 						],
 						"settings":
@@ -670,84 +966,25 @@
 					"type": "text"
 				},
 				{
-					"buffer": 11,
-					"file": "alexwylercom/static/html/chrome.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2150,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								252,
-								252
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 12,
-					"file": "alexwylercom/static/html/music.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 660,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								481,
-								481
-							]
-						],
-						"settings":
-						{
-							"auto_name": "",
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 10,
-					"type": "text"
-				},
-				{
 					"buffer": 13,
-					"file": "alexwylercom/static/js/alexwylercom.js",
+					"file": "/Users/alexwyler/Downloads/restaurantmenu.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3667,
+						"buffer_size": 3118,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2228,
-								2228
+								528,
+								528
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"syntax": "Packages/HTML/HTML.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
@@ -755,57 +992,29 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
 					"buffer": 14,
-					"file": "alexwylercom/static/html/resume.html",
+					"file": "/Users/alexwyler/Downloads/updateuser.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 125,
+						"buffer_size": 7574,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								114,
-								114
+								7574,
+								7574
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 13,
-					"type": "text"
-				},
-				{
-					"buffer": 15,
-					"file": "alexwylercom/static/js/resolves.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 487,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								164,
-								471
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"syntax": "Packages/HTML/HTML.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
@@ -813,119 +1022,210 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 14,
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 15,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3639,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3570,
+								3570
+							]
+						],
+						"settings":
+						{
+							"auto_name": "<div class=\"content\">",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
 					"buffer": 16,
-					"file": "alexwylercom/urls.py",
+					"file": "/Users/alexwyler/Downloads/passport info",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 747,
+						"buffer_size": 849,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								682,
-								682
+								539,
+								539
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 17,
-					"type": "text"
-				},
-				{
-					"buffer": 17,
-					"file": "alexwylercom/views.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 136,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								128,
-								128
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 16,
-					"type": "text"
-				},
-				{
-					"buffer": 18,
-					"file": ".sublime-project",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 45,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								45,
-								45
-							]
-						],
-						"settings":
-						{
+							"auto_name": "\"notes\": \"This API processes new orders. The endpo",
 							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 19,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
-					"buffer": 19,
-					"file": "/Users/alexwyler/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+					"buffer": 17,
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 39,
+						"buffer_size": 4222,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								36,
-								36
+								295,
+								295
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+							"auto_name": "Alex Wyler [1] api key = 796548bbedb0954de41ee9406",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 18,
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 18,
+					"file": "static/html/skill-rating.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 216,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								133,
+								133
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 20,
+					"type": "text"
+				},
+				{
+					"buffer": 19,
+					"file": "static/html/chrome.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2590,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 15,
+					"type": "text"
+				},
+				{
+					"buffer": 20,
+					"file": "static/js/alexwylercom.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6332,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2160,
+								2160
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1086.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 21,
+					"file": "index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 379,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								154,
+								154
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 21,
 					"type": "text"
 				}
 			]
@@ -933,11 +1233,11 @@
 	],
 	"incremental_find":
 	{
-		"height": 29.0
+		"height": 25.0
 	},
 	"input":
 	{
-		"height": 0.0
+		"height": 33.0
 	},
 	"layout":
 	{
@@ -970,7 +1270,7 @@
 	"project": ".sublime-project",
 	"replace":
 	{
-		"height": 54.0
+		"height": 46.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -980,23 +1280,91 @@
 		"selected_items":
 		[
 			[
+				"index",
+				"static/html/index.html"
+			],
+			[
+				"main",
+				"static/css/main.scss"
+			],
+			[
+				"ale",
+				"static/js/alexwylercom.js"
+			],
+			[
+				"inde",
+				"static/html/index.html"
+			],
+			[
+				"main.",
+				"static/css/main.scss"
+			],
+			[
+				"ch",
+				"static/html/chrome.html"
+			],
+			[
+				"chr",
+				"static/html/chrome.html"
+			],
+			[
+				"",
+				"static/html/chrome.html"
+			],
+			[
+				"chrome",
+				"static/html/chrome.html"
+			],
+			[
+				"ho",
+				"static/html/home.html"
+			],
+			[
+				"music",
+				"static/html/music.html"
+			],
+			[
+				"sekel",
+				"static/css/vendor/Skeleton-2.0.4/skeleton.css"
+			],
+			[
+				"a",
+				"static/js/alexwylercom.js"
+			],
+			[
+				"r",
+				"static/html/resume.html"
+			],
+			[
+				"re",
+				"static/html/resume.html"
+			],
+			[
+				"alex",
+				"static/js/alexwylercom.js"
+			],
+			[
+				"ske",
+				"static/css/vendor/Skeleton-2.0.4/skeleton.css"
+			],
+			[
+				"ind",
+				"index.js"
+			],
+			[
+				"home",
+				"static/html/home.html"
+			],
+			[
+				"res",
+				"static/html/resume.html"
+			],
+			[
 				"index.j",
 				"node_modules/express/index.js"
 			],
 			[
-				"a",
-				"alexwylercom/static/js/alexwylercom.js"
-			],
-			[
-				"inde",
-				"alexwylercom/static/html/index.html"
-			],
-			[
 				"al",
-				"alexwylercom/static/js/alexwylercom.js"
-			],
-			[
-				"alex",
 				"alexwylercom/static/js/alexwylercom.js"
 			],
 			[
@@ -1004,16 +1372,8 @@
 				"alexwylercom/static/html/head.html"
 			],
 			[
-				"main",
-				"alexwylercom/static/css/main.scss"
-			],
-			[
 				".sh",
 				"~/alexwyler.com/alexwylercom/deploy.sh"
-			],
-			[
-				"ale",
-				"alexwylercom/static/js/alexwylercom.js"
 			],
 			[
 				"mu",
@@ -1032,20 +1392,8 @@
 				"alexwylercom/static/html/chrome.html"
 			],
 			[
-				"res",
-				"alexwylercom/static/html/resume.html"
-			],
-			[
-				"chr",
-				"alexwylercom/static/html/chrome.html"
-			],
-			[
 				"blo",
 				"alexwylercom/static/html/blog.html"
-			],
-			[
-				"main.",
-				"alexwylercom/static/css/main.scss"
 			],
 			[
 				"blog",
@@ -1077,7 +1425,7 @@
 	},
 	"select_symbol":
 	{
-		"height": 392.0,
+		"height": 27.0,
 		"last_filter": "",
 		"selected_items":
 		[
@@ -1092,7 +1440,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 209.0,
+	"side_bar_width": 381.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
